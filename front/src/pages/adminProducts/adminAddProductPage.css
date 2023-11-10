@@ -1,0 +1,166 @@
+.adminProductsAddView {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .adminProductsAddMain {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  
+  .adminProductsAddMain .adminProductsAddMainHeader {
+    width: 100%;
+    background-color: #b4c5e4;
+    color: #105ab2;
+    padding: 16px 0;
+    font-size: xxx-large;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+  
+ 
+.add-Product {
+    /* display: grid;
+    grid-template-columns: 50% 50%; */
+    background-color: #105ab2;
+    margin: 0 auto;
+    width: 85%;
+    height: 94vh;
+}
+
+.formUp {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    row-gap: 20px;
+    height: 80vh;
+    justify-items: center;
+    margin-top: 20px;
+    /* width: 50%; */
+    /* margin: 0 20px; */
+    /* column-gap: 50px; */
+}
+
+.formUp label {
+    margin-right: 10px;
+}
+.formUp input{
+    border-radius: 12px;
+    display: flex;
+}
+
+.forminputs-add-Product{
+  font-size: 20px;
+}
+
+.ProductKousa ,
+.ProductKousa-input{
+    margin-left: 50px;
+    font-size: 20px;
+}
+
+.formUp input:focus::placeholder {
+    color: transparent;
+}
+
+.adminProductsAddView label {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.featured-class {
+    display: flex;
+    align-items: baseline;
+    margin-right: 122px;
+}
+
+
+.option-category {
+    /* width: 50px; */
+    padding: 5px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    margin-right: 90px;
+}
+
+.cyberpunk-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #30cfd0;
+    border-radius: 5px;
+    background-color: transparent;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+    
+  }
+  
+  .cyberpunk-checkbox:before {
+    content: "";
+    background-color: #30cfd0;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .cyberpunk-checkbox:checked:before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .cyberpunk-checkbox-label {
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    color: black;
+
+  }
+
+  .formDownDescription {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .product-description-1 .forminputs-add-Product{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .adminProductsAddView input[type="text"],
+  .adminProductsAddView input[type="number"]{
+    width: 280px;
+   height: 30px
+  }
+
+  .adminProductsAddView .add-Product button{
+
+    width: 50%;
+    height: 50px;
+  }
+
+  .forminputs-add-Product textarea {
+margin-top: -50px;
+margin-bottom: 10px;
+resize: none;
+border-radius: 10px;
+  }
+
+  .forminputs-add-Product textarea:focus::placeholder{
+    color: transparent;
+  }

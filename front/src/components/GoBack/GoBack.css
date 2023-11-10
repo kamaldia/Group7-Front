@@ -1,0 +1,16 @@
+.gb_button {
+    color: #105ab2;
+    border: 1px solid #105ab2;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 10;
+    left: 2%;
+    top: 17.7%;
+  }
+  
+  .gb_button:hover {
+    background-color: #105ab2;
+    color: white;
+  }

@@ -1,0 +1,25 @@
+.products-by-category-abc {
+  background-color: #2f5a8e;
+  min-height: 83.2vh;
+}
+
+.card-container-abc2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+}
+
+.category-name-filter-abc {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #105ab2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b4c5e4;
+  height: 4vh;
+}

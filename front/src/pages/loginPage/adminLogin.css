@@ -1,0 +1,81 @@
+.login-form {
+  height: 100vh;
+  background-size: 100% 100%;
+  background-image: url("../../assets//images/loginbackground.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.login-formusername {
+  color: white;
+
+  background-color: transparent;
+  border-color: white;
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  background-image: url("../../assets//icons//usernameLogo.svg");
+  background-size: 35px;
+  background-repeat: no-repeat;
+  font-family: bold;
+  width: 300px;
+  font-size: large;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.login-formpassword {
+  background-color: transparent;
+  border-color: white;
+  border-radius: 10px;
+  height: 40px;
+  text-align: center;
+  background-image: url("../../assets//icons//passwordLogo.svg");
+  background-repeat: no-repeat;
+  background-size: 30px;
+  width: 300px;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.login-form::placeholder {
+  color: white;
+  font-size: large;
+  opacity: 0;
+}
+
+.login-formbutton {
+  width: 300px;
+  height: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: bold;
+  font-size: 17px;
+  color: #3586e9;
+  text-align: center;
+  font-weight: 600;
+  line-height: 40px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, color 0.4s ease;
+}
+
+.login-formbutton:hover {
+  background-color: #3586e9;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+.login-formbuttonh1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 200px;
+}
+
+.login-form input:focus::placeholder {
+  color: transparent;
+}
+.login-form input::placeholder {
+  color: white;
+  opacity: 0.5;
+}

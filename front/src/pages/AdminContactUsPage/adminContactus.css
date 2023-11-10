@@ -1,0 +1,77 @@
+
+.adminContactUsView {
+    height: 100vh;
+    display: flex;
+  }
+
+
+
+
+  .adminContactUsView .adminContactUsMainHeader {
+    width: 100%;
+    padding: 16px 0;
+  
+    background-color: #b4c5e4;
+    color: #105ab2;
+    padding: 16px 0;
+    font-size: xxx-large;
+    text-align: center;
+    margin-bottom: 4%;
+  }
+  
+  
+  .adminContactUsView .adminContactUsMain {
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+  }
+
+  .admin-Contactus{
+    width: 100%;
+}
+
+.admin-Contactus table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid #b4c5e4;
+  border-radius: 5px;
+}
+
+.admin-Contactus th {
+  background-color: #105ab2;
+  color: #fff;
+}
+
+.admin-Contactus td , .admin-Contactus th , .admin-Contactus button{
+  font-size: x-large;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.admin-Contactus td.colspan2 {
+  height: auto;
+  word-wrap: break-word;
+}
+
+  
+
+  
+.adminContactUsView .adminContactUsMain button {
+    font-size: large;
+    background-color: #105ab2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .adminContactUsView .adminContactUsMain button:hover {
+    background-color: #b4c5e4;
+    color: #105ab2;
+    font-weight: 600;}
+  

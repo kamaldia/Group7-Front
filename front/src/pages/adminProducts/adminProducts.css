@@ -1,0 +1,251 @@
+.adminProductsView {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.adminProductsMain {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adminProductsMain .adminProductsMainHeader {
+  width: 100%;
+  background-color: #b4c5e4;
+  color: #105ab2;
+  padding: 16px 0;
+  font-size: xxx-large;
+  text-align: center;
+}
+
+.adminProductsMain .Product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.adminProductsMain .Product {
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 20px;
+  padding-bottom: 0;
+  background-color: #fff;
+  width: 350px;
+  height: 380px;
+}
+
+.adminProductsMain .Product img {
+  width: 100%;
+  height: 70%;
+}
+
+.adminProductsMain .Product-info {
+  text-align: left;
+  margin: 10px;
+}
+
+.adminProductsMain .Product-info h2 {
+  font-size: 20px;
+}
+
+.adminProductsMain .Product-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 195px;
+  margin-top: 10px;
+}
+
+.adminProductsMain button {
+  font-size: large;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color:#105ab2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.adminProductsMain button:hover {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-weight: 600;
+
+}
+
+/* Add Admin Form Styles */
+.adminProductsMain .add-Product {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 60%;
+  height: 380px;
+
+}
+.adminProductsMain .add-Product > div {
+  background-color: #105ab2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminProductsMain .add-Product h2 {
+  margin: 20px;
+}
+.adminProductsMain .add-Product hr {
+  width: 99%;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+.adminProductsMain .addadminform {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.adminProductsMain .addadminform .forminputs-add-Product {
+  width: 80%;
+  align-items: flex-start;}
+.adminProductsMain .add-Product label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: larger;
+  
+  align-self: flex-start;
+
+}
+
+
+.adminProductsMain .add-Product input[type="text"],
+.adminProductsMain .add-Product input[type="file"] {
+  width: 85%;
+  padding: 10px;
+  margin-bottom: 5px;
+  font-size: large;
+
+}
+.adminProductsMain .add-Product input[type="file"] {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.adminProductsMain .add-Product button {
+  margin: 0 auto;
+  display: block;
+  width: 88%;
+  padding: 10px;
+  background-color: #105ab2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+  font-size: x-large;
+  margin-bottom: 10px;
+
+}
+
+.adminProductsMain .add-Product button:hover {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+
+/************************adminProductModal ************************/
+
+.adminProductsMain .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  overflow: auto;
+}
+.adminProductsMain .modal h2 {
+  margin-bottom: 12px;
+}
+.adminProductsMain .modal.open {
+  display: block;
+}
+
+.adminProductsMain .modal .modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 25px;
+  border: 1px solid #ccc;
+  width: 25%;
+  height: 27%;
+  min-width: fit-content;
+}
+
+.adminProductsMain .modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: xx-large;
+}
+
+.adminProductsMain .modal .form-group {
+  margin-bottom: 10px;
+}
+
+.adminProductsMain .modal label {
+  display: block;
+  font-weight: 600;
+}
+
+.adminProductsMain .modal input {
+  font-size: larger;
+  width: 90%;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.adminProductsMain .modalbuttons {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 220px;
+}
+
+.adminProductsMain .modal button {
+  font-size: large;
+  background-color: #105ab2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.adminProductsMain .modal button:hover {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-weight: 600;}
+
+
+
+.adminProductsMain .modal input[type=file]{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+} 
+
+

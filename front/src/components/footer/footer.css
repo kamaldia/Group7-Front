@@ -1,0 +1,16 @@
+.app-footer-abc {
+    /* position: fixed; */
+    bottom: 0%;
+    width: 100%;
+    height: 5vh;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+  }
+  
+  .app-footer-abc p {
+    justify-content: center;
+    align-items: center;
+  }

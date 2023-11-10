@@ -1,0 +1,240 @@
+@font-face {
+  font-family: "Sora";
+  src: url("../../assets/fonts/Sora-ExtraBold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ContactUs1 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  min-height: 100vh;
+  align-items: center;
+  background-color: #105ab2;
+}
+
+.ContactUs1 a {
+  color: wheat;
+  font-size: 35px;
+}
+
+.ContactUs1 .RightSide {
+  width: 50%;
+  height: 80vh;
+}
+
+.ContactUs1 .LeftSide {
+  margin-top: 10%;
+  margin-left: 100px;
+  width: 50%;
+  height: 66vh;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: x-large;
+}
+
+.ContactUs1 .Email {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: space-between;
+  font-size: 27px;
+  margin-bottom: 6%;
+  width: 25%;
+}
+
+.ContactUs1 h1 {
+  margin-top: -8%;
+}
+
+.ContactUs1 .LeftEmails {
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ContactUs1 .RightSide .form-Contactus {
+  background-color: #eeeeee;
+  border-radius: 20px;
+  width: 70%;
+  padding: 50px;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ContactUs1 .form-Contactus ::placeholder {
+  color: rgb(58, 145, 244);
+}
+
+.ContactUs1 .input-name,
+.ContactUs1 .input-email {
+  margin-top: 12%;
+  font-size: 16px;
+  padding: 5px 0;
+  border: none;
+  font-family: "Sora";
+  font-weight: 600;
+  border-bottom: 2px solid #ccc;
+  color: #08aeea;
+  width: 75%;
+  background-color: transparent;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.ContactUs1 .input-name:focus,
+.ContactUs1 .input-email:focus {
+  border-color: #08aeea;
+  outline: none;
+  color: black;
+  font-family: "Sora";
+}
+
+.ContactUs1 .input-name:focus::placeholder,
+.ContactUs .input-email:focus::placeholder {
+  color: transparent;
+}
+
+.ContactUs1 .RightSide button {
+  width: 50%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 40px;
+  border-radius: 16px;
+  background-color: #105ab2;
+  background-image: url("../../assets/icons/send.svg");
+  background-repeat: no-repeat;
+  background-size: 10%;
+  background-position: 30% center;
+  min-width: 200px;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ContactUs1 img {
+  width: 35px;
+}
+
+.ContactUs1 button:hover {
+  background-color: #0c3b73;
+}
+
+.ContactUs1 .textarea {
+  width: 70%;
+  height: 160px;
+  padding: 12px;
+  margin-bottom: 50px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  resize: none;
+  border-width: 3px;
+  border-color: #b4c5e4;
+  transition: border-color 0.3s ease;
+}
+
+.ContactUs1 .textarea:focus {
+  border-color: #105ab2;
+  box-shadow: 0 0 5px rgba(16, 90, 178, 0.5);
+}
+
+.ContactUs1 ::placeholder {
+  color: #9ab5e9;
+}
+
+.ContactUs1 .textarea:focus::placeholder {
+  color: transparent;
+}
+
+.ContactUs1 .LeftSide button {
+  height: 54px;
+  position: absolute;
+  top: 35px;
+  left: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: #1b68ee;
+  color: #f6f6f6;
+  font-size: 20px;
+  text-align: center;
+  border-color: white;
+  cursor: pointer;
+  width: 50px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.LeftEmails .Email a :first-child {
+  margin-left: 90px;
+}
+
+.ContactUs1 button:hover {
+  background-color: #0c3b73;
+}
+
+.ContactUs1 button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 750px) {
+  .ContactUs1 {
+    flex-direction: column;
+  }
+
+  .ContactUs1 .RightSide {
+    width: 90%;
+  }
+
+  .ContactUs1 .LeftSide {
+    font-size: 15px;
+    width: 90%;
+    height: 35vh;
+  }
+
+  .ContactUs1 a {
+    font-size: 25px;
+  }
+
+  .ContactUs1 h1 {
+    margin-bottom: -40px;
+  }
+
+  .ContactUs1 h2 {
+    font-size: 18px;
+  }
+
+  .ContactUs1 .input-email {
+    margin-bottom: 40px;
+  }
+  .ContactUs1 .RightSide .form-Contactus {
+    padding: 5px;
+    padding-bottom: 15px;
+    width: 98%;
+  }
+
+  .ContactUs1 .LeftSide button {
+    width: 50px;
+    font-size: 15px;
+    position: absolute;
+    top: 90px;
+    left: 10px;
+    content: "";
+  }
+}

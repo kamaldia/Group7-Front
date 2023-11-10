@@ -1,0 +1,35 @@
+.pnf-abc {
+    display: flex;
+    min-height: 64.5vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    margin: 86.5px;
+  }
+  
+  .pnf-title-abc {
+    font-size: 100px;
+    font-weight: 700;
+    align-self: center;
+    margin-top: 30px;
+  }
+  
+  .pnf-desc-abc {
+    font-weight: 600;
+    align-self: center;
+  }
+  
+  .pnf-btn-abc {
+    color: #105ab2;
+    border: 1px solid #105ab2;
+    text-decoration: none;
+    padding: 10px;
+    margin: 100px;
+    border-radius: 8px;
+  }
+  
+  .pnf-btn-abc:hover {
+    background-color: #105ab2;
+    color: white;
+  }
