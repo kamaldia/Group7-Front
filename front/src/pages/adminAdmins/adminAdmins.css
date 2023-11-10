@@ -1,0 +1,235 @@
+.adminAdminsView {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.mainAdminAdmins {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainAdminAdmins .adminAdd {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  padding: 16px;
+  font-size: xxx-large;
+  text-align: center;
+  margin-bottom: 5%;
+}
+.mainAdminAdmins .adminCRUDS {
+  width: 94%;
+  display: flex;
+  justify-content: center;
+  padding-left: 4%;
+}
+
+/* Admin List Styles */
+.mainAdminAdmins .admin-list {
+  width: 60%;
+}
+.mainAdminAdmins .admin-list table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border: 1px solid #b4c5e4;
+
+  border-radius: 5px;
+}
+
+.mainAdminAdmins .admin-list th,
+.mainAdminAdmins .admin-list td {
+  font-size: x-large;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.mainAdminAdmins .admin-list th {
+  background-color: #105ab2;
+  color: #fff;
+}
+
+.mainAdminAdmins .admin-list tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.mainAdminAdmins .admin-list tr:hover {
+  background-color: #ddd;
+}
+
+.mainAdminAdmins .admin-list td:first-child {
+  width: 70%;
+}
+
+.mainAdminAdmins .admin-list td:last-child {
+  width: 30%;
+}
+
+/* Admin Actions Styles */
+.mainAdminAdmins .admin-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-actions button {
+  padding: 10px 20px;
+  background-color: #105ab2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.mainAdminAdmins .admin-actions button:hover {
+  background-color: #555;
+}
+
+/* Add Admin Form Styles */
+.mainAdminAdmins .add-admin {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 30%;
+  height: 365px;
+}
+.mainAdminAdmins .add-admin >div {
+background-color:#105ab2;
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.mainAdminAdmins .add-admin h2 {
+margin: 15px; 
+}
+.mainAdminAdmins .add-admin hr {
+  width: 99%;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+.mainAdminAdmins .addadminform {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.mainAdminAdmins .addadminform .forminputs {
+  width: 80%;
+}
+.mainAdminAdmins .add-admin label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.mainAdminAdmins .add-admin input[type="text"],
+.mainAdminAdmins .add-admin input[type="password"] {
+  width: 93%;
+  padding: 10px;
+  margin-bottom: 5px;
+  font-size: large;
+}
+
+.mainAdminAdmins .add-admin button {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  background-color: #105ab2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: larger;
+  border-radius: 10px;
+}
+
+.mainAdminAdmins .add-admin button:hover {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-weight: 600;}
+
+/* modal testing */
+
+.mainAdminAdmins .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  overflow: auto;
+}
+.mainAdminAdmins .modal h2 {
+  margin-bottom: 12px;
+}
+.mainAdminAdmins .modal.open {
+  display: block;
+}
+
+.mainAdminAdmins .modal .modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 25px;
+  border: 1px solid #ccc;
+  width: 20%;
+  height: 27%;
+  min-width: fit-content;
+}
+
+.mainAdminAdmins .modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: xx-large;
+}
+
+.mainAdminAdmins .modal .form-group {
+  margin-bottom: 10px;
+}
+
+.mainAdminAdmins .modal label {
+  display: block;
+  font-weight: 600;
+}
+
+.mainAdminAdmins .modal input {
+  font-size: larger;
+  width: 95%;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.mainAdminAdmins .modalbuttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainAdminAdmins .modal button {
+  font-size: large;
+  background-color: #105ab2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.mainAdminAdmins .modal button:hover {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-weight: 600;}

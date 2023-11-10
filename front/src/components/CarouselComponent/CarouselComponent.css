@@ -1,0 +1,15 @@
+.blogs-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-right: 20px;
+    background: none;
+    gap:20px
+  }
+  
+  .blog-title {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 700;
+  }

@@ -1,0 +1,79 @@
+/* Style the carousel container */
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    background-color: rgb(230, 230, 230);
+    margin-top: 10px;
+  
+  }
+  
+  /* Style the carousel slides */
+  .carousel-slide {
+    display: none;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    background-color: #fff;
+    height: 70vh;
+    object-fit: cover;
+  }
+  
+  .carousel-slide.active {
+    display: flex;
+    object-fit: cover;
+  }
+  
+  .next-button img ,
+  .previous-button img{
+    height: 8dvh;
+  }
+  
+  .next-button
+   {
+    position: absolute;
+    right:20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: inherit;
+    border: none;
+    padding: .2em 1.5em;
+    font-size: 20px;
+  }
+  
+  .previous-button {
+    position: absolute;
+    left:20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: inherit;
+    border: none;
+    padding: .2em 1.5em;
+    font-size: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    position: relative;
+  }
+  
+  .carousel-image {
+    width: 100%;
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .carousel {
+      height: 50vh;
+    }
+  
+    .carousel-slide {
+      height: 50vh;
+    }
+  
+    .carousel-image {
+      width: 100%;
+      height: auto;
+    }
+  }

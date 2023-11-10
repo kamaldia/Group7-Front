@@ -1,0 +1,24 @@
+.allproduct-container-abc {
+    background-color: #2f5a8e;
+    min-height: 83.4vh;
+  }
+  
+  .allproduct-name-abc {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    color: #105ab2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #b4c5e4;
+    height: 4vh;
+  }
+  .card-container-abc1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+    align-content: center;
+  }

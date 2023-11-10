@@ -1,0 +1,260 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .adminCarouselView {
+    min-height: 100vh;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .adminCarouselMain {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+  
+  }
+  .adminCarouselMain .adminCarousel {
+    width: 100%;
+    padding: 16px 0;
+    background-color: #b4c5e4;
+    color: #105ab2;
+    font-size: xxx-large;
+    text-align: center;
+    margin-bottom: 2%;
+  
+  }
+  
+  .adminCarouselMain .Carousel-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .adminCarouselMain .Carousel {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 20px;
+    padding-bottom: 0;
+    background-color: #fff;
+    width: 350px;
+    height: 380px;
+  }
+  
+  .adminCarouselMain .Carousel img {
+    width: 100%;
+    height: 70%;
+  }
+  
+  .adminCarouselMain .Carousel-info {
+    text-align: left;
+    margin: 10px;
+  }
+  
+  .adminCarouselMain .Carousel-info h2 {
+    font-size: 20px;
+  }
+  
+  .adminCarouselMain .Carousel-actions {
+    display: flex;
+    justify-content: space-around;
+    gap: 195px;
+    margin-top: 10px;
+  }
+  
+  .adminCarouselMain button {
+    font-size: large;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background-color:#105ab2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .adminCarouselMain button:hover {
+    background-color: #b4c5e4;
+    color: #105ab2;
+    font-weight: 600;
+  
+  }
+  
+  /* Add Admin Form Styles */
+  .adminCarouselMain .add-Carousel {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 60%;
+    height: 380px;
+  
+  }
+  .adminCarouselMain .add-Carousel > div {
+    background-color: #105ab2;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .adminCarouselMain .add-Carousel h2 {
+    margin: 20px;
+  }
+  .adminCarouselMain .add-Carousel hr {
+    width: 99%;
+    margin-bottom: 15px;
+    opacity: 0.8;
+  }
+  .adminCarouselMain .addadminform {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .adminCarouselMain .addadminform .forminputs-add-Carousel {
+    width: 80%;
+    align-items: flex-start;}
+  .adminCarouselMain .add-Carousel label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: larger;
+    
+    align-self: flex-start;
+  
+  }
+  
+  
+  .adminCarouselMain .add-Carousel input[type="text"],
+  .adminCarouselMain .add-Carousel input[type="file"] {
+    width: 85%;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: large;
+  
+  }
+  .adminCarouselMain .add-Carousel input[type="file"] {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  
+  }
+  
+  .adminCarouselMain .add-Carousel button {
+    margin: 0 auto;
+    display: block;
+    width: 88%;
+    padding: 10px;
+    background-color: #105ab2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+    font-size: x-large;
+    margin-bottom: 10px;
+  
+  }
+  
+  .adminCarouselMain .add-Carousel button:hover {
+    background-color: #b4c5e4;
+    color: #105ab2;
+    font-size: x-large;
+    font-weight: 600;
+  }
+  
+  
+  /************************adminCarouselModal ************************/
+  
+  .adminCarouselMain .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    overflow: auto;
+  }
+  .adminCarouselMain .modal h2 {
+    margin-bottom: 12px;
+  }
+  .adminCarouselMain .modal.open {
+    display: block;
+  }
+  
+  .adminCarouselMain .modal .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 25px;
+    border: 1px solid #ccc;
+    width: 25%;
+    height: 27%;
+    min-width: fit-content;
+  }
+  
+  .adminCarouselMain .modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: xx-large;
+  }
+  
+  .adminCarouselMain .modal .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .adminCarouselMain .modal label {
+    display: block;
+    font-weight: 600;
+  }
+  
+  .adminCarouselMain .modal input {
+    font-size: larger;
+    width: 90%;
+    padding: 5px;
+    margin: 5px 0;
+  }
+  
+  .adminCarouselMain .modalbuttons {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    gap: 220px;
+  }
+  
+  .adminCarouselMain .modal button {
+    font-size: large;
+    background-color: #105ab2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+  
+  .adminCarouselMain .modal button:hover {
+    background-color: #b4c5e4;
+    color: #105ab2;
+    font-weight: 600;}
+  
+  
+  
+  .adminCarouselMain .modal input[type=file]{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  } 
+  
+  

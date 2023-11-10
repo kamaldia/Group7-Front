@@ -1,0 +1,154 @@
+* {
+  /* border: 1px solid black; */
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+.sidebar a {
+  color: white;
+  text-decoration: none;
+}
+.sidebar {
+  min-height: 100vh;
+  min-width: 200px;
+  color: white;
+  width: 20%;
+  background-color: #105ab2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h1 {
+  margin-top: 30px;
+}
+
+.sidebar .dashboard {
+  font-size: xx-large;
+  width: 89%;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .dashboard span {
+  padding-top: 3px;
+  margin-right: 2px;
+}
+.sidebar hr {
+  width: 99%;
+  background-color: gray;
+}
+
+.sidebar .navitems {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 5%;
+}
+.item:hover {
+  border-right: 1px solid #105ab2;
+  border-left: 2px solid #105ab2;
+  background-color: white;
+  color: #105ab2;
+  transition: 0.5s;
+  font-weight: 600;
+}
+
+.ItemList {
+  padding: 3%;
+  margin: 1%;
+  width: 92%;
+  background-color: rgb(63, 63, 63);
+  border-radius: 5px;
+  font-size: larger;
+  margin-bottom: 3%;
+}
+
+.ItemList a {
+  text-decoration: none;
+  color: white;
+}
+.ItemList div {
+  margin: 1% 0%;
+  padding: 5%;
+  cursor: pointer;
+}
+
+.ItemList div:hover {
+  background-color: white;
+  border-radius: 3px;
+  color: #105ab2;
+  transition: 0.5s ease-in-out;
+  font-weight: 600;
+}
+
+.whiteBackground {
+  border-right: 1px solid #105ab2;
+  border-left: 2px solid #105ab2;
+  font-size: xx-large;
+
+  background-color: white;
+  color: #105ab2;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 5%;
+  font-weight: 600;
+}
+.whiteBackground span {
+  transform: rotate(-180deg);
+}
+
+.button-logout {
+  position: absolute;
+  overflow: hidden;
+  height: 3rem;
+  padding: 0 2rem;
+  border-radius: 10px;
+  background: #105ab2;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  top: 0;
+  right: 0;
+  margin: 19.5px;
+  font-size: x-large;
+}
+.button-logout:hover {
+  background-color: white;
+  color: #105ab2;
+  transition: 0.3s;
+  border: 2px solid #105ab2;
+  font-weight: 600;
+}
+
+/* .button-logout-content {
+  position: relative;
+  z-index: 1;
+} */
+
+/* .button-logout::before {
+  content: '';
+  position: absolute;
+  top: 1;
+  left: 1;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    rgba(150, 93, 233, 1) 10.8%,
+    rgba(99, 88, 238, 1) 94.3%
+  );
+  transition: all 0.475s;
+} */

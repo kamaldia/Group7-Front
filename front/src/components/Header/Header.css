@@ -1,0 +1,15 @@
+.app-header-abc {
+    background-color: var(--secondary-color);
+    display: flex;
+    width: auto;
+    /* padding: 10px 150px 8px 156px; */
+    height: 3.1vh;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 7%;
+  }
+  
+  .app-logo-abc {
+    width: 60px;
+    height: 12px;
+  }

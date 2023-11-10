@@ -1,0 +1,259 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.adminCategoryView {
+  min-height: 100vh;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.adminCategoryMain {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+align-items: center;
+
+}
+.adminCategoryMain .adminCategory {
+  width: 100%;
+  padding: 16px 0;
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-size: xxx-large;
+  text-align: center;
+  margin-bottom: 2%;
+
+}
+
+.adminCategoryMain .category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.adminCategoryMain .category {
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 20px;
+  padding-bottom: 0;
+  background-color: #fff;
+  width: 350px;
+  height: 380px;
+}
+
+.adminCategoryMain .category img {
+  width: 100%;
+  height: 70%;
+}
+
+.adminCategoryMain .category-info {
+  text-align: left;
+  margin: 10px;
+}
+
+.adminCategoryMain .category-info h2 {
+  font-size: 20px;
+}
+
+.adminCategoryMain .category-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 195px;
+  margin-top: 10px;
+}
+
+.adminCategoryMain button {
+  font-size: large;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background-color:#105ab2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.adminCategoryMain button:hover {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-weight: 600;
+
+}
+
+/* Add Admin Form Styles */
+.adminCategoryMain .add-Category {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 60%;
+  height: 380px;
+
+}
+.adminCategoryMain .add-Category > div {
+  background-color: #105ab2;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.adminCategoryMain .add-Category h2 {
+  margin: 20px;
+}
+.adminCategoryMain .add-Category hr {
+  width: 99%;
+  margin-bottom: 15px;
+  opacity: 0.8;
+}
+.adminCategoryMain .addadminform {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+.adminCategoryMain .addadminform .forminputs-add-Category {
+  width: 80%;
+  align-items: flex-start;}
+.adminCategoryMain .add-Category label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: larger;
+  
+  align-self: flex-start;
+
+}
+
+
+.adminCategoryMain .add-Category input[type="text"],
+.adminCategoryMain .add-Category input[type="file"] {
+  width: 85%;
+  padding: 10px;
+  margin-bottom: 5px;
+  font-size: large;
+
+}
+.adminCategoryMain .add-Category input[type="file"] {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.adminCategoryMain .add-Category button {
+  margin: 0 auto;
+  display: block;
+  width: 88%;
+  padding: 10px;
+  background-color: #105ab2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+  font-size: x-large;
+  margin-bottom: 10px;
+
+}
+
+.adminCategoryMain .add-Category button:hover {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+
+/************************adminCategoryModal ************************/
+
+.adminCategoryMain .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+  overflow: auto;
+}
+.adminCategoryMain .modal h2 {
+  margin-bottom: 12px;
+}
+.adminCategoryMain .modal.open {
+  display: block;
+}
+
+.adminCategoryMain .modal .modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 25px;
+  border: 1px solid #ccc;
+  width: 25%;
+  height: 27%;
+  min-width: fit-content;
+}
+
+.adminCategoryMain .modal .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: xx-large;
+}
+
+.adminCategoryMain .modal .form-group {
+  margin-bottom: 10px;
+}
+
+.adminCategoryMain .modal label {
+  display: block;
+  font-weight: 600;
+}
+
+.adminCategoryMain .modal input {
+  font-size: larger;
+  width: 90%;
+  padding: 5px;
+  margin: 5px 0;
+}
+
+.adminCategoryMain .modalbuttons {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  gap: 220px;
+}
+
+.adminCategoryMain .modal button {
+  font-size: large;
+  background-color: #105ab2;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.adminCategoryMain .modal button:hover {
+  background-color: #b4c5e4;
+  color: #105ab2;
+  font-weight: 600;}
+
+
+
+.adminCategoryMain .modal input[type=file]{
+  border: 1px solid rgba(0, 0, 0, 0.1);
+} 
+

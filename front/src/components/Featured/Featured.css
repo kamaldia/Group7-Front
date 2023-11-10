@@ -1,0 +1,81 @@
+.carousel-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 20px auto;
+    margin-top: 50px;
+    width: 80%;
+    column-gap: 170px;
+  }
+  
+  .carousel-1 {
+    width: 80%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+  }
+  
+  .carousel-image-1 {
+    width: 100%;
+    height: 300px;
+    
+  }
+  
+  .carousel-slide-1 {
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center;
+    display: none;
+    text-align: center;
+    width: 92%;
+    background-color: #fff;
+    
+  }
+  
+  .carousel-slide-1.active {
+    display: flex;
+    width: 100%;
+    transform: scale(1.1);
+    
+  }
+  
+  
+  @media screen and (max-width: 768px) {
+    .carousel-container {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+    }
+  
+    .carousel-1 {
+      height: 200px;
+    }
+  
+    .carousel-image-1 {
+      height: 200px;
+    }
+  
+    .carousel-slide-1 {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .carousel-container {
+      width: 100%;
+      margin: 10px auto;
+      margin-top: 30px;
+    }
+  
+    .carousel-1 {
+      height: 150px;
+    }
+  
+    .carousel-image-1 {
+      height: 150px;
+    }
+  
+    .carousel-slide-1 {
+      width: 100%;
+    }
+  }
