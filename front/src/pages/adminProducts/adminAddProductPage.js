@@ -61,25 +61,27 @@ const AdminAddProductPage = () => {
       formData.append("imagePath", image);
     });
 
+    const attributes = {
+      storage: storage,
+      operatingSystem: operatingSystem,
+      camera: camera,
+      display: display,
+      battery: battery,
+      ram: ram,
+      cpu: cpu,
+    };
     if (showExtraFields) {
-      const attributes = {
-        storage: storage,
-        operatingSystem: operatingSystem,
-        accessoriesColor: accessoriesColor,
-        camera: camera,
-        display: display,
-        battery: battery,
-        ram: ram,
-        cpu: cpu,
-        accessoriesType: accessoriesType,
-        accessoriesBrand: accessoriesBrand,
-      };
-      formData.append("attributes", JSON.stringify(attributes));
-    }
+      attributes.accessoriesColor= accessoriesColor;
+      attributes.accessoriesBrand= accessoriesBrand;
+      attributes.accessoriesType=accessoriesType;
 
-    for (const value of formData.values()) {
-      console.log(value);
     }
+    formData.append("attributes", JSON.stringify(attributes));
+
+
+    // for (const value of formData.values()) {
+    //   console.log(value);
+    // }
     try {
       const response = await fetch("http://localhost:4000/api/products", {
         method: "POST",
@@ -88,7 +90,8 @@ const AdminAddProductPage = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log(data);
+        if (data) {
+        alert("Product saved successfully");}
 
         // Clear form fields after successful submission
         setName("");
@@ -106,6 +109,7 @@ const AdminAddProductPage = () => {
         setCpu("");
         setAccessoriesType("");
         setAccessoriesBrand("");
+        setFeatured(false)
         setShowExtraFields(false);
       } else {
         console.error("Failed to create product");
@@ -280,7 +284,7 @@ const AdminAddProductPage = () => {
                     <label htmlFor="ProductName">Accessories Brand:</label>
                     <input
                       type="text"
-                      placeholder="Accessories Color"
+                      placeholder="Accessories Brand"
                       value={accessoriesBrand}
                       onChange={(e) => setAccessoriesBrand(e.target.value)}
                     />

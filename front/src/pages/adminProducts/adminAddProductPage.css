@@ -51,9 +51,6 @@
     display: flex;
 }
 
-.forminputs-add-Product{
-  font-size: 20px;
-}
 
 .ProductKousa ,
 .ProductKousa-input{
@@ -63,6 +60,7 @@
 
 .formUp input:focus::placeholder {
     color: transparent;
+    font-size: larger;
 }
 
 .adminProductsAddView label {
@@ -148,6 +146,15 @@
    height: 30px
   }
 
+
+  .adminProductsAddView input[type="file"]{
+    width: 333px;
+   height: 30px
+  }
+  .adminProductsAddView select{
+    width: 192px;
+  }
+
   .adminProductsAddView .add-Product button{
 
     width: 50%;
@@ -155,12 +162,31 @@
   }
 
   .forminputs-add-Product textarea {
-margin-top: -50px;
+    height: 80px;
+margin-top: -60px;
 margin-bottom: 10px;
 resize: none;
 border-radius: 10px;
   }
+  .forminputs-add-Product::placeholder{
+    font-size: xx-large;
+  font-weight: 600;  }
 
   .forminputs-add-Product textarea:focus::placeholder{
     color: transparent;
   }
+
+ .adminProductsAddMain button{
+
+  font-size: larger;
+  font-weight: 600;
+ }
+
+ .adminProductsAddMain ::placeholder{
+
+  font-size: larger;
+ }
+ .adminProductsAddMain label{
+  color: rgb(237, 229, 229);
+ }
+
