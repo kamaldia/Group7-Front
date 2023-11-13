@@ -17,7 +17,8 @@ const Navbar = () => {
 
   return (
     <nav className="App-navbar-abc">
-      <img className="techspot-logo-abc" src={TechSpot} alt="website-logo" />
+    <Link to="/home"> <img className="techspot-logo-abc" src={TechSpot} alt="website-logo" /></Link> 
+
       <ul className="nav-list-abc">
         <li className="nav-item-abc">
           <Link to="/home">Home</Link>

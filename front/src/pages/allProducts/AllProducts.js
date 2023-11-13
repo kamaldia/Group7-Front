@@ -36,7 +36,7 @@ const AllProducts = () => {
           {products.length > 0 ? (
             products.map((product) => (
               <Card
-                key={product.id}
+                key={product._id}
                 image={`http://localhost:4000/${product.imagePath[0]}`}
                 name={product.name}
                 price={product.price}

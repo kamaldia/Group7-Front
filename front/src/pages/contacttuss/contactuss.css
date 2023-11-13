@@ -97,7 +97,7 @@
 }
 
 .ContactUs1 .input-name:focus::placeholder,
-.ContactUs .input-email:focus::placeholder {
+.ContactUs1 .input-email:focus::placeholder {
   color: transparent;
 }
 
