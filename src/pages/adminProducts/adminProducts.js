@@ -12,13 +12,15 @@ const AdminProducts = () => {
   const [editedProduct, setEditedProduct] = useState({
     name: "",
     imagePath: null,
-    attributes:{}
+    attributes: {},
   });
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://techspot-v0iy.onrender.com/api/products");
+        const response = await fetch(
+          "https://techspot-v0iy.onrender.com/api/products"
+        );
         if (response.ok) {
           const json = await response.json();
           setProducts(json);
@@ -30,7 +32,9 @@ const AdminProducts = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await fetch("https://techspot-v0iy.onrender.com/api/categories");
+        const response = await fetch(
+          "https://techspot-v0iy.onrender.com/api/categories"
+        );
         if (response.ok) {
           const json = await response.json();
           setProductCategory(json);
@@ -72,11 +76,11 @@ const AdminProducts = () => {
             formData.append(`imagePath`, image);
           });
         }
-        formData.append("attributes", JSON.stringify(editedProduct.attributes) );
+        formData.append("attributes", JSON.stringify(editedProduct.attributes));
 
-          for (const value of formData.values()) {
-      console.log(value);
-    }
+        for (const value of formData.values()) {
+          console.log(value);
+        }
 
         const response = await fetch(
           `https://techspot-v0iy.onrender.com/api/products/${editedProduct._id}`,

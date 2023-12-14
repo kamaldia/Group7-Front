@@ -3,7 +3,7 @@ import "./adminCategoryView.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
 const AdminCategoryView = () => {
-  const[refreshCategories,setRefreshCategories]=useState("");
+  const [refreshCategories, setRefreshCategories] = useState("");
   const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState({
@@ -19,7 +19,9 @@ const AdminCategoryView = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("https://techspot-v0iy.onrender.com/api/categories");
+        const response = await fetch(
+          "https://techspot-v0iy.onrender.com/api/categories"
+        );
         if (response.ok) {
           const json = await response.json();
           setCategories(json);
@@ -40,10 +42,13 @@ const AdminCategoryView = () => {
       formData.append("categoryName", newCategory.categoryName);
       formData.append("categoryImage", newCategory.categoryImage);
 
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/categories", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/categories",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         const newCategoryData = await response.json();
@@ -101,7 +106,7 @@ const AdminCategoryView = () => {
         console.error("Error:", error);
       }
       setIsCategoryModalOpen(false);
-      setRefreshCategories(refreshCategories+"refresh");
+      setRefreshCategories(refreshCategories + "refresh");
     }
   };
 
@@ -129,7 +134,6 @@ const AdminCategoryView = () => {
       } catch (error) {
         console.error("Error:", error);
       }
-
     }
   };
 

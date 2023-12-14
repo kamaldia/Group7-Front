@@ -10,7 +10,7 @@ import photo from "../../assets/images/adminWelcome.png";
 const AdminDashboard = () => {
   return (
     <div className="admindashboard">
-        <SideNavbar
+      <SideNavbar
         dashboard={true}
         categories={false}
         products={false}
@@ -19,7 +19,7 @@ const AdminDashboard = () => {
         admins={false}
       />
       <div className="main">
-      <h1 className="adminWelcome">Admin Dashboard</h1>
+        <h1 className="adminWelcome">Admin Dashboard</h1>
 
         <div className="welcome">
           <h2>Hello, Admin!😊</h2>

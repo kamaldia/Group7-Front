@@ -10,7 +10,9 @@ const Products = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/products");
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/products"
+      );
       const json = await response.json();
       console.log(json);
       if (response.ok) {

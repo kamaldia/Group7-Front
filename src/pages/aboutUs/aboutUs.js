@@ -53,19 +53,31 @@ const AboutUs = () => {
           </div>
           <div className="about_us_details-abc logos-abc">
             <a href="https://www.facebook.com">
-              <img src={facebook} className="App_logo-abc" alt="facebook-logo" />
+              <img
+                src={facebook}
+                className="App_logo-abc"
+                alt="facebook-logo"
+              />
             </a>
             <a href="https://www.twitter.com">
               <img src={x} className="App_logo-abc" alt="x-logo" />
             </a>
             <a href="https://www.instagram.com">
-              <img src={instagram} className="App_logo-abc" alt="instagram-logo" />
+              <img
+                src={instagram}
+                className="App_logo-abc"
+                alt="instagram-logo"
+              />
             </a>
             <a href="https://www.gmail.com">
               <img src={google} className="App_logo-abc" alt="google-logo" />
             </a>
             <a href="https://www.linkedin.com">
-              <img src={linkedin} className="App_logo-abc" alt="linkedin-logo" />
+              <img
+                src={linkedin}
+                className="App_logo-abc"
+                alt="linkedin-logo"
+              />
             </a>
           </div>
         </div>

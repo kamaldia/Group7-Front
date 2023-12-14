@@ -10,7 +10,9 @@ const Carousel = () => {
   useEffect(() => {
     const fetchCarousels = async () => {
       setIsLoading(true);
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/carousels");
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/carousels"
+      );
       const json = await response.json();
       console.log(json);
       if (response.ok) {

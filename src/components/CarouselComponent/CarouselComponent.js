@@ -27,7 +27,9 @@ const CarouselComponent = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/blogs");
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/blogs"
+      );
       const json = await response.json();
       console.log(json);
       if (response.ok) {

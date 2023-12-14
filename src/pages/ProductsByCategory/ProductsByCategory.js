@@ -9,7 +9,8 @@ import Loading from "../../components/Loading/Loading";
 
 const ProductsByCategory = (props) => {
   const { categoryName } = useParams();
-  const normalizedCategoryName = categoryName.toLowerCase(); /*.replace(/\s/g, "") */
+  const normalizedCategoryName =
+    categoryName.toLowerCase(); /*.replace(/\s/g, "") */
   const upperCategoryName = categoryName.toUpperCase();
   const [products, setProducts] = useState([]);
   useEffect(() => {

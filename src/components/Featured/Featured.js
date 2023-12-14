@@ -8,7 +8,9 @@ const Featured = () => {
   useEffect(() => {
     setIsLoading(true);
     const fetchAds = async () => {
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/advertisements");
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/advertisements"
+      );
       const json = await response.json();
       console.log(json);
       if (response.ok) {

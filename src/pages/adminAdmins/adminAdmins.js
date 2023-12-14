@@ -22,7 +22,9 @@ const AdminAdmins = () => {
     // Fetch admins on component mount
     const fetchAdmins = async () => {
       try {
-        const response = await fetch("https://techspot-v0iy.onrender.com/api/admins");
+        const response = await fetch(
+          "https://techspot-v0iy.onrender.com/api/admins"
+        );
         if (response.ok) {
           const data = await response.json();
           setAdmins(data);
@@ -43,13 +45,16 @@ const AdminAdmins = () => {
       return alert("Please enter your password more than 4 characters");
     }
     try {
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/admins", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newAdmin),
-      });
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/admins",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newAdmin),
+        }
+      );
       e.target.reset();
 
       if (response.ok) {
@@ -91,14 +96,13 @@ const AdminAdmins = () => {
   };
 
   const handleUpdateAdmin = async (e) => {
-
     e.preventDefault();
     const confirmUpdate = window.confirm(
       "Are you sure you want to update this admin?"
     );
- 
+
     if (confirmUpdate) {
-      if (!editedAdmin.password || (editedAdmin.password.toString().length < 4)) {
+      if (!editedAdmin.password || editedAdmin.password.toString().length < 4) {
         return alert("Please enter a password with at least 4 characters");
       }
       if (!editedAdmin.username) {
@@ -159,7 +163,10 @@ const AdminAdmins = () => {
         <h1 className="adminAdd">Admins Page</h1>
         <div className="adminCRUDS">
           <div className="add-admin">
-           <div> <h2>Add New Admin</h2></div>
+            <div>
+              {" "}
+              <h2>Add New Admin</h2>
+            </div>
             <hr />
             <form className="addadminform" onSubmit={handleAddAdmin}>
               <div className="forminputs">
@@ -205,7 +212,9 @@ const AdminAdmins = () => {
               <thead>
                 <tr>
                   <th>Admin Name</th>
-                  <th className=".AdminAdminsActionTable" colSpan="2">Admin Action</th>
+                  <th className=".AdminAdminsActionTable" colSpan="2">
+                    Admin Action
+                  </th>
                 </tr>
               </thead>
               <tbody>

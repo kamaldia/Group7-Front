@@ -22,18 +22,21 @@ const Contacttuss = () => {
   const handleaddtodatabase = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/contacts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newMessage),
-      });
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/contacts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newMessage),
+        }
+      );
       e.target.reset();
 
       if (response.ok) {
         const data = await response.json();
-        sendEmail()
+        sendEmail();
         console.log(data);
       } else {
         alert("Error, Admin already exists");
@@ -41,12 +44,9 @@ const Contacttuss = () => {
     } catch (error) {
       console.error("Error:", error);
     }
-
   };
 
-  
   const sendEmail = () => {
-
     emailjs
       .sendForm(
         "service_50xsf8d",
@@ -92,15 +92,19 @@ const Contacttuss = () => {
         </div>
       </div>
       <div className="RightSide">
-        <form ref={form} className="form-Contactus" onSubmit={handleaddtodatabase}>
+        <form
+          ref={form}
+          className="form-Contactus"
+          onSubmit={handleaddtodatabase}
+        >
           <input
             class="input-name"
             type="text"
             placeholder="Your name"
             name="from_name"
-             onChange={(e) =>
-                setNewMessage({ ...newMessage, contactName: e.target.value })
-              }
+            onChange={(e) =>
+              setNewMessage({ ...newMessage, contactName: e.target.value })
+            }
             required
           />
           <span class="underline_name"></span>
@@ -110,8 +114,8 @@ const Contacttuss = () => {
             placeholder="Your email"
             name="from_email"
             onChange={(e) =>
-                setNewMessage({ ...newMessage, contactEmail: e.target.value })
-              }
+              setNewMessage({ ...newMessage, contactEmail: e.target.value })
+            }
             required
           />
           <label for="Email" class="underline_email"></label>
@@ -120,8 +124,8 @@ const Contacttuss = () => {
             placeholder="Write a message"
             name="message"
             onChange={(e) =>
-                setNewMessage({ ...newMessage, contactMessage: e.target.value })
-              }
+              setNewMessage({ ...newMessage, contactMessage: e.target.value })
+            }
             required
           />
           <button type="submit">Send</button>

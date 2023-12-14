@@ -8,7 +8,7 @@ const GoBack = () => {
 
   return (
     <div onClick={handleGoBack}>
-      <button className="gb_button" >
+      <button className="gb_button">
         <span className="gb_text">Go Back</span>
       </button>
     </div>

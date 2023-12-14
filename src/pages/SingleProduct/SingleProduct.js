@@ -29,11 +29,11 @@ export default function SingleProduct() {
         const data = await response.json();
         setProduct(data);
         setLoading(false);
-        console.log(data)
+        console.log(data);
       } catch (error) {
         console.error("Error fetching product:", error);
         setProduct(null);
-        setLoading(false); 
+        setLoading(false);
       }
     };
 
@@ -157,7 +157,7 @@ export default function SingleProduct() {
                     </li>
                   )}
                   {/* Accessories attributes */}
-                  
+
                   {product !== null && product.attributes.accessoriesType && (
                     <li>
                       <span className="label-abc">Type: </span>

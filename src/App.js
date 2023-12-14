@@ -43,8 +43,7 @@ function App() {
 
             <Route
               path="/admin"
-               element={<ProtectedRoute>{<AdminDashboard />}</ProtectedRoute>}
-
+              element={<ProtectedRoute>{<AdminDashboard />}</ProtectedRoute>}
             />
             <Route path="/login" element={<AdminLogin />} />
             <Route path="/admin/categories" element={<AdminCategory />} />

@@ -8,7 +8,9 @@ const AdminContactUs = () => {
   useEffect(() => {
     const fetchContactUs = async () => {
       try {
-        const response = await fetch("https://techspot-v0iy.onrender.com/api/contacts");
+        const response = await fetch(
+          "https://techspot-v0iy.onrender.com/api/contacts"
+        );
         if (response.ok) {
           const jsonData = await response.json();
           setMessages(jsonData);
@@ -22,18 +24,29 @@ const AdminContactUs = () => {
   }, []);
 
   const formatDate = (dateString) => {
-    const options = { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" };
+    const options = {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    };
     return new Date(dateString).toLocaleString(undefined, options);
   };
 
   const handleDeleteMessage = async (messageId) => {
     try {
-      const response = await fetch(`https://techspot-v0iy.onrender.com/api/contacts/${messageId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://techspot-v0iy.onrender.com/api/contacts/${messageId}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (response.ok) {
         // Remove the deleted message from the state
-        setMessages((prevMessages) => prevMessages.filter((message) => message._id !== messageId));
+        setMessages((prevMessages) =>
+          prevMessages.filter((message) => message._id !== messageId)
+        );
       }
     } catch (error) {
       console.error("Error:", error);

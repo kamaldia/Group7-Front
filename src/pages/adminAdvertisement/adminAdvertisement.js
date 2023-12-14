@@ -4,9 +4,8 @@ import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
 const AdminAdvertisement = () => {
   const [refreshAdvertisements, setRefreshAdvertisements] = useState("");
-  const [isAdvertisementModalOpen, setIsAdvertisementModalOpen] = useState(
-    false
-  );
+  const [isAdvertisementModalOpen, setIsAdvertisementModalOpen] =
+    useState(false);
   const [advertisements, setAdvertisements] = useState([]);
   const [newAdvertisement, setNewAdvertisement] = useState({
     title: "",
@@ -44,10 +43,13 @@ const AdminAdvertisement = () => {
       formData.append("title", newAdvertisement.title);
       formData.append("image", newAdvertisement.image);
 
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/advertisements", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/advertisements",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         const newAdvertisementData = await response.json();

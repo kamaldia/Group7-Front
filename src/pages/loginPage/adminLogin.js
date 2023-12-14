@@ -3,13 +3,10 @@ import "./adminLogin.css";
 import loginLogo from "../../assets/icons/loginLogo.svg";
 import { useNavigate } from "react-router-dom";
 
-
 const AdminLogin = () => {
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigate = useNavigate(); 
-
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -25,19 +22,22 @@ const AdminLogin = () => {
     console.log(username, password);
 
     try {
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/admin", {
-        method: "POST",
-        crossDomain: true,
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/admin",
+        {
+          method: "POST",
+          crossDomain: true,
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -48,7 +48,6 @@ const AdminLogin = () => {
         localStorage.setItem("authToken", data.data.username); // Replace "yourAuthTokenValue" with the actual authentication token or flag.
 
         navigate("/admin");
-
       } else {
         alert("Login failed");
       }

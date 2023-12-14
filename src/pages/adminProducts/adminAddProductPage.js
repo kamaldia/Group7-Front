@@ -25,7 +25,9 @@ const AdminAddProductPage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch("https://techspot-v0iy.onrender.com/api/categories");
+        const response = await fetch(
+          "https://techspot-v0iy.onrender.com/api/categories"
+        );
         if (response.ok) {
           const json = await response.json();
           setProductCategory(json);
@@ -71,27 +73,29 @@ const AdminAddProductPage = () => {
       cpu: cpu,
     };
     if (showExtraFields) {
-      attributes.accessoriesColor= accessoriesColor;
-      attributes.accessoriesBrand= accessoriesBrand;
-      attributes.accessoriesType=accessoriesType;
-
+      attributes.accessoriesColor = accessoriesColor;
+      attributes.accessoriesBrand = accessoriesBrand;
+      attributes.accessoriesType = accessoriesType;
     }
     formData.append("attributes", JSON.stringify(attributes));
-
 
     // for (const value of formData.values()) {
     //   console.log(value);
     // }
     try {
-      const response = await fetch("https://techspot-v0iy.onrender.com/api/products", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://techspot-v0iy.onrender.com/api/products",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
         if (data) {
-        alert("Product saved successfully");}
+          alert("Product saved successfully");
+        }
 
         // Clear form fields after successful submission
         setName("");
@@ -109,7 +113,7 @@ const AdminAddProductPage = () => {
         setCpu("");
         setAccessoriesType("");
         setAccessoriesBrand("");
-        setFeatured(false)
+        setFeatured(false);
         setShowExtraFields(false);
       } else {
         console.error("Failed to create product");
@@ -121,8 +125,7 @@ const AdminAddProductPage = () => {
 
   return (
     <div className="adminProductsAddView">
-<SideNavbar products={true}/>
-
+      <SideNavbar products={true} />
 
       <div className="adminProductsAddMain">
         <h1 className="adminProductsAddMainHeader">Add Product</h1>

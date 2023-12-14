@@ -12,7 +12,9 @@ const AllProducts = () => {
   useEffect(() => {
     const fetchProductsByCategory = async () => {
       try {
-        const response = await fetch(`https://techspot-v0iy.onrender.com/api/products/`);
+        const response = await fetch(
+          `https://techspot-v0iy.onrender.com/api/products/`
+        );
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
