@@ -11,7 +11,7 @@ const Carousel = () => {
     const fetchCarousels = async () => {
       setIsLoading(true);
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/carousels"
+        "produhttps://localhost:8000ct/api/carousels"
       );
       const json = await response.json();
       console.log(json);
@@ -64,7 +64,7 @@ const Carousel = () => {
               }`}
             >
               <img
-                src={`https://techspot-v0iy.onrender.com/${carousel.image}`}
+                src={`produhttps://localhost:8000ct/${carousel.image}`}
                 alt={`Image ${index + 1}`}
                 className="carousel-image"
               />

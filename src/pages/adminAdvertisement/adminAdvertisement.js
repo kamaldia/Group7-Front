@@ -21,7 +21,7 @@ const AdminAdvertisement = () => {
     const fetchAdvertisements = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/advertisements"
+          "produhttps://localhost:8000ct/api/advertisements"
         );
         if (response.ok) {
           const json = await response.json();
@@ -44,7 +44,7 @@ const AdminAdvertisement = () => {
       formData.append("image", newAdvertisement.image);
 
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/advertisements",
+        "produhttps://localhost:8000ct/api/advertisements",
         {
           method: "POST",
           body: formData,
@@ -87,7 +87,7 @@ const AdminAdvertisement = () => {
         }
 
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/advertisements/${editedAdvertisement._id}`,
+          `produhttps://localhost:8000ct/api/advertisements/${editedAdvertisement._id}`,
           {
             method: "PUT",
             body: formData,
@@ -123,7 +123,7 @@ const AdminAdvertisement = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/advertisements/${AdvertisementId}`,
+          `produhttps://localhost:8000ct/api/advertisements/${AdvertisementId}`,
           {
             method: "DELETE",
           }
@@ -211,7 +211,7 @@ const AdminAdvertisement = () => {
           {advertisements.map((Advertisement) => (
             <div className="Advertisement" key={Advertisement._id}>
               <img
-                src={`https://techspot-v0iy.onrender.com/${Advertisement.image}`}
+                src={`produhttps://localhost:8000ct/${Advertisement.image}`}
                 alt={Advertisement.title}
               />
               <div className="Advertisement-info">

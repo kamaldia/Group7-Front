@@ -21,7 +21,7 @@ export default function SingleProduct() {
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/products/${productId}`
+          `https://localhost:8000/api/products/${productId}`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -84,7 +84,7 @@ export default function SingleProduct() {
                     <div key={index}>
                       <img
                         className="cimage-abc"
-                        src={"https://techspot-v0iy.onrender.com/" + image}
+                        src={"https://localhost:8000/" + image}
                         alt={`${index}`}
                       />
                     </div>

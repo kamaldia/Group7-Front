@@ -26,7 +26,7 @@ const AdminBlogs = () => {
     const fetchBlogs = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/blogs"
+          "produhttps://localhost:8000ct/api/blogs"
         );
         if (response.ok) {
           const json = await response.json();
@@ -52,7 +52,7 @@ const AdminBlogs = () => {
       formData.append("date", newBlog.date);
 
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/Blogs",
+        "produhttps://localhost:8000ct/api/Blogs",
         {
           method: "POST",
           body: formData,
@@ -104,7 +104,7 @@ const AdminBlogs = () => {
         }
 
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/blogs/${editedBlog._id}`,
+          `produhttps://localhost:8000ct/api/blogs/${editedBlog._id}`,
           {
             method: "PATCH",
             body: formData,
@@ -138,7 +138,7 @@ const AdminBlogs = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/blogs/${BlogId}`,
+          `produhttps://localhost:8000ct/api/blogs/${BlogId}`,
           {
             method: "DELETE",
           }
@@ -279,7 +279,7 @@ const AdminBlogs = () => {
           {blogs.map((Blog) => (
             <div className="Blog" key={Blog._id}>
               <img
-                src={`https://techspot-v0iy.onrender.com/${Blog.image}`}
+                src={`produhttps://localhost:8000ct/${Blog.image}`}
                 alt={Blog.title}
               />
               <div className="Blog-info">

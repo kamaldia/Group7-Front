@@ -11,7 +11,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/products"
+        "produhttps://localhost:8000ct/api/products"
       );
       const json = await response.json();
       console.log(json);
@@ -62,7 +62,7 @@ const Products = () => {
                 product.featured && (
                   <Card
                     key={product._id}
-                    image={`https://techspot-v0iy.onrender.com/${product.imagePath[0]}`}
+                    image={`produhttps://localhost:8000ct/${product.imagePath[0]}`}
                     name={product.name}
                     price={product.price}
                     description={product.description}

@@ -19,7 +19,7 @@ const AdminProducts = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/products"
+          "https://localhost:8000/api/products"
         );
         if (response.ok) {
           const json = await response.json();
@@ -33,7 +33,7 @@ const AdminProducts = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/categories"
+          "https://localhost:8000/api/categories"
         );
         if (response.ok) {
           const json = await response.json();
@@ -83,7 +83,7 @@ const AdminProducts = () => {
         }
 
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/products/${editedProduct._id}`,
+          `https://localhost:8000/api/products/${editedProduct._id}`,
           {
             method: "PUT",
             body: formData,
@@ -118,7 +118,7 @@ const AdminProducts = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/Products/${ProductId}`,
+          `https://localhost:8000/api/Products/${ProductId}`,
           {
             method: "DELETE",
           }
@@ -154,7 +154,7 @@ const AdminProducts = () => {
           {products.map((Product) => (
             <div className="Product" key={Product._id}>
               <img
-                src={`https://techspot-v0iy.onrender.com/${Product.imagePath[0]}`}
+                src={`https://localhost:8000/${Product.imagePath[0]}`}
                 alt={Product.name}
               />
               <div className="Product-info">

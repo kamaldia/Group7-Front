@@ -20,7 +20,7 @@ const AdminCategoryView = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/categories"
+          "https://localhost:8000/api/categories"
         );
         if (response.ok) {
           const json = await response.json();
@@ -43,7 +43,7 @@ const AdminCategoryView = () => {
       formData.append("categoryImage", newCategory.categoryImage);
 
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/categories",
+        "https://localhost:8000/api/categories",
         {
           method: "POST",
           body: formData,
@@ -83,7 +83,7 @@ const AdminCategoryView = () => {
         }
 
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/categories/${editedCategory._id}`,
+          `https://localhost:8000/api/categories/${editedCategory._id}`,
           {
             method: "PUT",
             body: formData,
@@ -117,7 +117,7 @@ const AdminCategoryView = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/categories/${categoryId}`,
+          `https://localhost:8000/api/categories/${categoryId}`,
           {
             method: "DELETE",
           }
@@ -206,7 +206,7 @@ const AdminCategoryView = () => {
           {categories.map((category) => (
             <div className="category" key={category._id}>
               <img
-                src={`https://techspot-v0iy.onrender.com/${category.categoryImage}`}
+                src={`https://localhost:8000/${category.categoryImage}`}
                 alt={category.categoryName}
               />
               <div className="category-info">

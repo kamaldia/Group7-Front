@@ -23,7 +23,7 @@ const AdminAdmins = () => {
     const fetchAdmins = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/admins"
+          "produhttps://localhost:8000ct/api/admins"
         );
         if (response.ok) {
           const data = await response.json();
@@ -46,7 +46,7 @@ const AdminAdmins = () => {
     }
     try {
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/admins",
+        "produhttps://localhost:8000ct/api/admins",
         {
           method: "POST",
           headers: {
@@ -77,7 +77,7 @@ const AdminAdmins = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/admins/${adminId}`,
+          `produhttps://localhost:8000ct/api/admins/${adminId}`,
           {
             method: "DELETE",
             headers: {
@@ -111,7 +111,7 @@ const AdminAdmins = () => {
       }
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/admins/${editedAdmin._id}`,
+          `produhttps://localhost:8000ct/api/admins/${editedAdmin._id}`,
           {
             method: "PUT",
             headers: {

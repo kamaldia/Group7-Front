@@ -9,7 +9,7 @@ const Featured = () => {
     setIsLoading(true);
     const fetchAds = async () => {
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/advertisements"
+        "produhttps://localhost:8000ct/api/advertisements"
       );
       const json = await response.json();
       console.log(json);
@@ -56,7 +56,7 @@ const Featured = () => {
                   }`}
                 >
                   <img
-                    src={`https://techspot-v0iy.onrender.com/${ad.image}`}
+                    src={`produhttps://localhost:8000ct/${ad.image}`}
                     alt={`Image ${index + 1}`}
                     className="carousel-image-1"
                   />
@@ -74,7 +74,7 @@ const Featured = () => {
                   }`}
                 >
                   <img
-                    src={`https://techspot-v0iy.onrender.com/${ad.image}`}
+                    src={`produhttps://localhost:8000ct/${ad.image}`}
                     alt={`Image ${index + 1}`}
                     className="carousel-image-1"
                   />

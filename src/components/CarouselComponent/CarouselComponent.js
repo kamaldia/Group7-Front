@@ -28,7 +28,7 @@ const CarouselComponent = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/blogs"
+        "produhttps://localhost:8000ct/api/blogs"
       );
       const json = await response.json();
       console.log(json);
@@ -65,7 +65,7 @@ const CarouselComponent = () => {
             <div className="blogs-container">
               <img
                 height="500"
-                src={`https://techspot-v0iy.onrender.com/${blog.image}`}
+                src={`produhttps://localhost:8000ct/${blog.image}`}
                 alt={blog.alt}
                 className="w-100"
               />

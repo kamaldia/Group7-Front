@@ -26,7 +26,7 @@ const AdminAddProductPage = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/categories"
+          "https://localhost:8000/api/categories"
         );
         if (response.ok) {
           const json = await response.json();
@@ -84,7 +84,7 @@ const AdminAddProductPage = () => {
     // }
     try {
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/products",
+        "https://localhost:8000/api/products",
         {
           method: "POST",
           body: formData,

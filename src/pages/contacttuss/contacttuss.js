@@ -23,7 +23,7 @@ const Contacttuss = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/contacts",
+        "https://localhost:8000/api/contacts",
         {
           method: "POST",
           headers: {
