@@ -25,10 +25,10 @@ const AdminAddProductPage = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(
-          "https://localhost:8000/api/categories"
+        const response = await axios.get(
+          "http://localhost:8000/api/category"
         );
-        if (response.ok) {
+        if (response.status == 200) {
           const json = await response.json();
           setProductCategory(json);
         }
@@ -83,15 +83,12 @@ const AdminAddProductPage = () => {
     //   console.log(value);
     // }
     try {
-      const response = await fetch(
-        "https://localhost:8000/api/products",
-        {
-          method: "POST",
-          body: formData,
-        }
+      const response = await axios.post(
+        "http://localhost:8000/api/product",
+        formData
       );
 
-      if (response.ok) {
+      if (response.status == 200) {
         const data = await response.json();
         if (data) {
           alert("Product saved successfully");

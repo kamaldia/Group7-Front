@@ -1,3 +1,4 @@
+import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./SingleProduct.css";
@@ -20,10 +21,10 @@ export default function SingleProduct() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await fetch(
-          `https://localhost:8000/api/products/${productId}`
+        const response = await axios.get(
+          `http://localhost:8000/api/product/${productId}`
         );
-        if (!response.ok) {
+        if (response.status != 200) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
@@ -84,7 +85,7 @@ export default function SingleProduct() {
                     <div key={index}>
                       <img
                         className="cimage-abc"
-                        src={"https://localhost:8000/" + image}
+                        src={"http://localhost:8000/" + image}
                         alt={`${index}`}
                       />
                     </div>

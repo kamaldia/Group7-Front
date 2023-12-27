@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./adminCategoryView.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
@@ -19,10 +20,10 @@ const AdminCategoryView = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch(
-          "https://localhost:8000/api/categories"
+        const response = await axios.get(
+          "http://localhost:8000/api/category"
         );
-        if (response.ok) {
+        if (response.status == 200) {
           const json = await response.json();
           setCategories(json);
         }
@@ -42,15 +43,12 @@ const AdminCategoryView = () => {
       formData.append("categoryName", newCategory.categoryName);
       formData.append("categoryImage", newCategory.categoryImage);
 
-      const response = await fetch(
-        "https://localhost:8000/api/categories",
-        {
-          method: "POST",
-          body: formData,
-        }
+      const response = await axios.post(
+        "http://localhost:8000/api/category",
+        formData
       );
 
-      if (response.ok) {
+      if (response.status == 200) {
         const newCategoryData = await response.json();
         setCategories((prevCategories) => [...prevCategories, newCategoryData]);
         setNewCategory({
@@ -82,15 +80,12 @@ const AdminCategoryView = () => {
           formData.append("categoryImage", editedCategory.categoryImage);
         }
 
-        const response = await fetch(
-          `https://localhost:8000/api/categories/${editedCategory._id}`,
-          {
-            method: "PUT",
-            body: formData,
-          }
+        const response = await axios.put(
+          `http://localhost:8000/api/category/${editedCategory._id}`,
+          formData
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           const updatedCategory = await response.json();
           setCategories((prevCategories) =>
             prevCategories.map((category) =>
@@ -116,14 +111,11 @@ const AdminCategoryView = () => {
     );
     if (confirmDelete) {
       try {
-        const response = await fetch(
-          `https://localhost:8000/api/categories/${categoryId}`,
-          {
-            method: "DELETE",
-          }
+        const response = await axios.delete(
+          `http://localhost:8000/api/category/${categoryId}`
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           setCategories((prevCategories) =>
             prevCategories.filter((category) => category._id !== categoryId)
           );

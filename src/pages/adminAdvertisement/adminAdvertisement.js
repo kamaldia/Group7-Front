@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./adminAdvertisement.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
@@ -20,10 +21,10 @@ const AdminAdvertisement = () => {
   useEffect(() => {
     const fetchAdvertisements = async () => {
       try {
-        const response = await fetch(
-          "produhttps://localhost:8000ct/api/advertisements"
+        const response = await axios.get(
+          "http://localhost:8000/api/advertisement"
         );
-        if (response.ok) {
+        if (response.status == 200) {
           const json = await response.json();
           setAdvertisements(json);
         }
@@ -43,15 +44,12 @@ const AdminAdvertisement = () => {
       formData.append("title", newAdvertisement.title);
       formData.append("image", newAdvertisement.image);
 
-      const response = await fetch(
-        "produhttps://localhost:8000ct/api/advertisements",
-        {
-          method: "POST",
-          body: formData,
-        }
+      const response = await axios.post(
+        "http://localhost:8000/api/advertisement",
+        formData
       );
 
-      if (response.ok) {
+      if (response.status == 200) {
         const newAdvertisementData = await response.json();
         setAdvertisements((prevAdvertisements) => [
           ...prevAdvertisements,
@@ -86,15 +84,12 @@ const AdminAdvertisement = () => {
           formData.append("image", editedAdvertisement.image);
         }
 
-        const response = await fetch(
-          `produhttps://localhost:8000ct/api/advertisements/${editedAdvertisement._id}`,
-          {
-            method: "PUT",
-            body: formData,
-          }
+        const response = await axios.put(
+          `http://localhost:8000/api/advertisement/${editedAdvertisement._id}`,
+          formData,
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           const updatedAdvertisement = await response.json();
           setAdvertisements((prevAdvertisements) =>
             prevAdvertisements.map((Advertisement) =>
@@ -122,14 +117,11 @@ const AdminAdvertisement = () => {
     );
     if (confirmDelete) {
       try {
-        const response = await fetch(
-          `produhttps://localhost:8000ct/api/advertisements/${AdvertisementId}`,
-          {
-            method: "DELETE",
-          }
+        const response = await axios.delete(
+          `http://localhost:8000/api/advertisement/${AdvertisementId}`
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           setAdvertisements((prevAdvertisements) =>
             prevAdvertisements.filter(
               (Advertisement) => Advertisement._id !== AdvertisementId
@@ -211,7 +203,7 @@ const AdminAdvertisement = () => {
           {advertisements.map((Advertisement) => (
             <div className="Advertisement" key={Advertisement._id}>
               <img
-                src={`produhttps://localhost:8000ct/${Advertisement.image}`}
+                src={`http://localhost:8000/${Advertisement.image}`}
                 alt={Advertisement.title}
               />
               <div className="Advertisement-info">

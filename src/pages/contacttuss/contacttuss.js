@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import axios from "axios";
 import emailjs from "emailjs-com";
 import "./contactuss.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,19 +23,13 @@ const Contacttuss = () => {
   const handleaddtodatabase = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://localhost:8000/api/contacts",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newMessage),
-        }
+      const response = await axios.post(
+        "http://localhost:8000/api/contactus",
+        JSON.stringify(newMessage)
       );
       e.target.reset();
 
-      if (response.ok) {
+      if (response.status == 200) {
         const data = await response.json();
         sendEmail();
         console.log(data);

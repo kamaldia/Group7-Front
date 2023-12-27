@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./adminProducts.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
@@ -18,10 +19,10 @@ const AdminProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(
-          "https://localhost:8000/api/products"
+        const response = await axios.get(
+          "http://localhost:8000/api/product/"
         );
-        if (response.ok) {
+        if (response.status == 200) {
           const json = await response.json();
           setProducts(json);
         }
@@ -32,10 +33,10 @@ const AdminProducts = () => {
 
     const fetchCategories = async () => {
       try {
-        const response = await fetch(
-          "https://localhost:8000/api/categories"
+        const response = await axios.get(
+          "http://localhost:8000/api/product/"
         );
-        if (response.ok) {
+        if (response.status == 200) {
           const json = await response.json();
           setProductCategory(json);
         }
@@ -82,15 +83,12 @@ const AdminProducts = () => {
           console.log(value);
         }
 
-        const response = await fetch(
-          `https://localhost:8000/api/products/${editedProduct._id}`,
-          {
-            method: "PUT",
-            body: formData,
-          }
+        const response = await axios.put(
+          `http://localhost:8000/api/product/${editedProduct._id}`,
+          formData
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           const updatedProduct = await response.json();
           setProducts((prevProducts) =>
             prevProducts.map((Product) =>
@@ -117,14 +115,11 @@ const AdminProducts = () => {
     );
     if (confirmDelete) {
       try {
-        const response = await fetch(
-          `https://localhost:8000/api/Products/${ProductId}`,
-          {
-            method: "DELETE",
-          }
+        const response = await axios.delete(
+          `http://localhost:8000/api/Product/${ProductId}`
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           setProducts((prevProducts) =>
             prevProducts.filter((Product) => Product._id !== ProductId)
           );
@@ -154,7 +149,7 @@ const AdminProducts = () => {
           {products.map((Product) => (
             <div className="Product" key={Product._id}>
               <img
-                src={`https://localhost:8000/${Product.imagePath[0]}`}
+                src={`http://localhost:8000/${Product.imagePath[0]}`}
                 alt={Product.name}
               />
               <div className="Product-info">

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./adminAdmins.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 import deleteIcon from "../../assets/icons/delete.svg";
@@ -22,9 +23,7 @@ const AdminAdmins = () => {
     // Fetch admins on component mount
     const fetchAdmins = async () => {
       try {
-        const response = await fetch(
-          "produhttps://localhost:8000ct/api/admins"
-        );
+        const response = await axios.get("http://localhost:8000/api/admins");
         if (response.ok) {
           const data = await response.json();
           setAdmins(data);
@@ -45,20 +44,19 @@ const AdminAdmins = () => {
       return alert("Please enter your password more than 4 characters");
     }
     try {
-      const response = await fetch(
-        "produhttps://localhost:8000ct/api/admins",
+      const response = await axios.post(
+        "http://localhost:8000/api/admins",
+        JSON.stringify(newAdmin),
         {
-          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(newAdmin),
         }
       );
       e.target.reset();
 
-      if (response.ok) {
-        const data = await response.json();
+      if (response.status == 200) {
+        const data = await response.data;
         setAdmins([...admins, data]);
         setNewAdmin({ username: "", password: "" });
         setPasswordError("");
@@ -76,17 +74,11 @@ const AdminAdmins = () => {
 
     if (confirmDelete) {
       try {
-        const response = await fetch(
-          `produhttps://localhost:8000ct/api/admins/${adminId}`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
+        const response = await axios.delete(
+          `http://localhost:8000/api/admins/${adminId}`
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           setAdmins(admins.filter((admin) => admin._id !== adminId));
         }
       } catch (error) {
@@ -110,18 +102,17 @@ const AdminAdmins = () => {
         return;
       }
       try {
-        const response = await fetch(
-          `produhttps://localhost:8000ct/api/admins/${editedAdmin._id}`,
+        const response = await axios.put(
+          `http://localhost:8000/api/admins/${editedAdmin._id}`,
+          JSON.stringify(editedAdmin),
           {
-            method: "PUT",
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(editedAdmin),
           }
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           setAdmins((prevAdmins) => {
             const updatedAdmins = [...prevAdmins];
             const updatedAdminIndex = updatedAdmins.findIndex(

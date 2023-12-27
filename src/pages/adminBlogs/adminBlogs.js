@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./adminBlogs.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
@@ -25,10 +26,10 @@ const AdminBlogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch(
-          "produhttps://localhost:8000ct/api/blogs"
+        const response = await axios.get(
+          "http://localhost:8000/api/blog"
         );
-        if (response.ok) {
+        if (response.status == 200) {
           const json = await response.json();
           setBlogs(json);
         }
@@ -51,15 +52,12 @@ const AdminBlogs = () => {
       formData.append("content", newBlog.content);
       formData.append("date", newBlog.date);
 
-      const response = await fetch(
-        "produhttps://localhost:8000ct/api/Blogs",
-        {
-          method: "POST",
-          body: formData,
-        }
+      const response = await axios.post(
+        "http://localhost:8000/api/blog",
+        formData,
       );
 
-      if (response.ok) {
+      if (response.status == 200) {
         const newBlogData = await response.json();
         setBlogs((prevBlogs) => [...prevBlogs, newBlogData]);
         setNewBlog({
@@ -103,15 +101,12 @@ const AdminBlogs = () => {
           formData.append("date", editedBlog.date);
         }
 
-        const response = await fetch(
-          `produhttps://localhost:8000ct/api/blogs/${editedBlog._id}`,
-          {
-            method: "PATCH",
-            body: formData,
-          }
+        const response = await axios.patch(
+          `http://localhost:8000/api/blog/${editedBlog._id}`,
+          formData
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           const updatedBlog = await response.json();
           setBlogs((prevBlogs) =>
             prevBlogs.map((Blog) =>
@@ -137,14 +132,11 @@ const AdminBlogs = () => {
     );
     if (confirmDelete) {
       try {
-        const response = await fetch(
-          `produhttps://localhost:8000ct/api/blogs/${BlogId}`,
-          {
-            method: "DELETE",
-          }
+        const response = await axios.delete(
+          `http://localhost:8000/api/blog/${BlogId}`
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           setBlogs((prevBlogs) =>
             prevBlogs.filter((Blog) => Blog._id !== BlogId)
           );
@@ -279,7 +271,7 @@ const AdminBlogs = () => {
           {blogs.map((Blog) => (
             <div className="Blog" key={Blog._id}>
               <img
-                src={`produhttps://localhost:8000ct/${Blog.image}`}
+                src={`http://localhost:8000/${Blog.image}`}
                 alt={Blog.title}
               />
               <div className="Blog-info">

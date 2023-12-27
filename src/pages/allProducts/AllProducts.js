@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Header from "../../components/Header/Header";
 import Navbar from "../../components/Navbar/Navbar";
 import Footer from "../../components/footer/footer";
@@ -12,10 +13,10 @@ const AllProducts = () => {
   useEffect(() => {
     const fetchProductsByCategory = async () => {
       try {
-        const response = await fetch(
-          `https://localhost:8000/api/products/`
+        const response = await axios.get(
+          `http://localhost:8000/api/product`
         );
-        if (!response.ok) {
+        if (response.status != 200) {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
@@ -39,7 +40,7 @@ const AllProducts = () => {
             products.map((product) => (
               <Card
                 key={product._id}
-                image={`https://localhost:8000/${product.imagePath[0]}`}
+                image={`http://localhost:8000/${product.imagePath[0]}`}
                 name={product.name}
                 price={product.price}
                 description={product.description}

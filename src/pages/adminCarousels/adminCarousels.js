@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./adminCarousels.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
@@ -19,10 +20,10 @@ const AdminCarousels = () => {
   useEffect(() => {
     const fetchCarousels = async () => {
       try {
-        const response = await fetch(
-          "https://localhost:8000/api/carousels"
+        const response = await axios.get(
+          "http://localhost:8000/api/carousel"
         );
-        if (response.ok) {
+        if (response.status == 200) {
           const json = await response.json();
           setCarousels(json);
         }
@@ -42,15 +43,12 @@ const AdminCarousels = () => {
       formData.append("title", newCarousel.title);
       formData.append("image", newCarousel.image);
 
-      const response = await fetch(
-        "https://localhost:8000/api/carousels",
-        {
-          method: "POST",
-          body: formData,
-        }
+      const response = await axios.post(
+        "http://localhost:8000/api/carousel",
+        formData
       );
 
-      if (response.ok) {
+      if (response.status == 200) {
         const newCarouselData = await response.json();
         setCarousels((prevCarousels) => [...prevCarousels, newCarouselData]);
         setNewCarousel({
@@ -82,15 +80,12 @@ const AdminCarousels = () => {
           formData.append("image", editedCarousel.image);
         }
 
-        const response = await fetch(
-          `https://localhost:8000/api/carousels/${editedCarousel._id}`,
-          {
-            method: "PUT",
-            body: formData,
-          }
+        const response = await axios.put(
+          `http://localhost:8000/api/carousel/${editedCarousel._id}`,
+          formData
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           const updatedCarousel = await response.json();
           setCarousels((prevCarousels) =>
             prevCarousels.map((Carousel) =>
@@ -116,14 +111,11 @@ const AdminCarousels = () => {
     );
     if (confirmDelete) {
       try {
-        const response = await fetch(
-          `https://localhost:8000/api/carousels/${CarouselId}`,
-          {
-            method: "DELETE",
-          }
+        const response = await axios.delete(
+          `http://localhost:8000/api/carousel/${CarouselId}`
         );
 
-        if (response.ok) {
+        if (response.status == 200) {
           setCarousels((prevCarousels) =>
             prevCarousels.filter((Carousel) => Carousel._id !== CarouselId)
           );

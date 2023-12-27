@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import "./adminLogin.css";
 import loginLogo from "../../assets/icons/loginLogo.svg";
 import { useNavigate } from "react-router-dom";
@@ -16,34 +17,25 @@ const AdminLogin = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => { // use oauth here
     e.preventDefault();
 
     console.log(username, password);
 
     try {
-      const response = await fetch(
-        "https://localhost:8000/api/admin",
-        {
-          method: "POST",
-          crossDomain: true,
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
-          body: JSON.stringify({
+      const response = await axios.post(
+        "http://localhost:8000/api/admin",
+        JSON.stringify({
             username,
             password,
-          }),
-        }
+          })
       );
 
       const data = await response.json();
 
       console.log(data, "data");
 
-      if (data.status === "ok") {
+      if (data.status == 200) {
         alert("successfull login");
         localStorage.setItem("authToken", data.data.username); // Replace "yourAuthTokenValue" with the actual authentication token or flag.
 

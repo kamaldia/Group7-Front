@@ -1,41 +1,27 @@
 {
-  "name": "front",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@emailjs/browser": "^3.11.0",
-    "@fortawesome/fontawesome-svg-core": "^6.4.2",
-    "@fortawesome/free-solid-svg-icons": "^6.4.2",
-    "@fortawesome/react-fontawesome": "^0.2.0",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.3.2",
-    "emailjs-com": "^3.2.0",
-    "font-awesome": "^4.7.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.11.0",
-    "react-loading": "^2.0.3",
-    "react-multi-carousel": "^2.8.4",
-    "react-router-dom": "^6.18.0",
-    "react-scripts": "5.0.1",
-    "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1",
-    "styled-components": "^6.1.0"
-  },
+  "name": "group7-front",
+  "version": "1.0.0",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "axios": "^1.6.3",
+    "dotenv": "^16.3.1",
+    "emailjs-com": "^3.2.0",
+    "jwt-decode": "^4.0.0",
+    "react-loading": "^2.0.3",
+    "react-multi-carousel": "^2.8.4",
+    "react-router-dom": "^6.21.1",
+    "react-scripts": "^5.0.1",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   },
   "browserslist": {
     "production": [
@@ -48,8 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "dotenv": "^16.3.1"
   }
 }

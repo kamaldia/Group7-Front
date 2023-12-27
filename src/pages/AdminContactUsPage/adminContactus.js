@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./adminContactus.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
@@ -8,10 +9,10 @@ const AdminContactUs = () => {
   useEffect(() => {
     const fetchContactUs = async () => {
       try {
-        const response = await fetch(
-          "https://localhost:8000/api/contacts"
+        const response = await axios.get(
+          "http://localhost:8000/api/contactus"
         );
-        if (response.ok) {
+        if (response.status == 200) {
           const jsonData = await response.json();
           setMessages(jsonData);
         }
@@ -36,13 +37,10 @@ const AdminContactUs = () => {
 
   const handleDeleteMessage = async (messageId) => {
     try {
-      const response = await fetch(
-        `https://localhost:8000/api/contacts/${messageId}`,
-        {
-          method: "DELETE",
-        }
+      const response = await axios.delete(
+        `http://localhost:8000/api/contactus/${messageId}`
       );
-      if (response.ok) {
+      if (response.status == 200) {
         // Remove the deleted message from the state
         setMessages((prevMessages) =>
           prevMessages.filter((message) => message._id !== messageId)
