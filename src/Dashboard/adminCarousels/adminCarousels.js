@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./adminCarousels.css";
-import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
 const AdminCarousels = () => {
   const [refreshCarousels, setRefreshCarousels] = useState("");
@@ -20,7 +19,7 @@ const AdminCarousels = () => {
     const fetchCarousels = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/carousels"
+          "https://localhost:8000/api/carousels"
         );
         if (response.ok) {
           const json = await response.json();
@@ -43,7 +42,7 @@ const AdminCarousels = () => {
       formData.append("image", newCarousel.image);
 
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/carousels",
+        "https://localhost:8000/api/carousels",
         {
           method: "POST",
           body: formData,
@@ -83,7 +82,7 @@ const AdminCarousels = () => {
         }
 
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/carousels/${editedCarousel._id}`,
+          `https://localhost:8000/api/carousels/${editedCarousel._id}`,
           {
             method: "PUT",
             body: formData,
@@ -117,7 +116,7 @@ const AdminCarousels = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/carousels/${CarouselId}`,
+          `https://localhost:8000/api/carousels/${CarouselId}`,
           {
             method: "DELETE",
           }
@@ -153,7 +152,6 @@ const AdminCarousels = () => {
 
   return (
     <div className="adminCarouselView">
-      <SideNavbar carousels={true} />
 
       <div className="adminCarouselMain">
         <h1 className="adminCarousel">Admin Carousel</h1>
@@ -200,7 +198,7 @@ const AdminCarousels = () => {
           {carousels.map((Carousel) => (
             <div className="Carousel" key={Carousel._id}>
               <img
-                src={`https://techspot-v0iy.onrender.com/${Carousel.image}`}
+                src={`https://localhost:8000/${Carousel.image}`}
                 alt={Carousel.title}
               />
               <div className="Carousel-info">

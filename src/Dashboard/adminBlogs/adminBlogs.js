@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./adminBlogs.css";
-import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
 const AdminBlogs = () => {
   const [refreshBlogs, setRefreshBlogs] = useState("");
@@ -26,7 +25,7 @@ const AdminBlogs = () => {
     const fetchBlogs = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/blogs"
+          "https://localhost:8000/api/blogs"
         );
         if (response.ok) {
           const json = await response.json();
@@ -52,7 +51,7 @@ const AdminBlogs = () => {
       formData.append("date", newBlog.date);
 
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/Blogs",
+        "https://localhost:8000/api/Blogs",
         {
           method: "POST",
           body: formData,
@@ -104,7 +103,7 @@ const AdminBlogs = () => {
         }
 
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/blogs/${editedBlog._id}`,
+          `https://localhost:8000/api/blogs/${editedBlog._id}`,
           {
             method: "PATCH",
             body: formData,
@@ -138,7 +137,7 @@ const AdminBlogs = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/blogs/${BlogId}`,
+          `https://localhost:8000/api/blogs/${BlogId}`,
           {
             method: "DELETE",
           }
@@ -195,8 +194,6 @@ const AdminBlogs = () => {
 
   return (
     <div className="adminBlogView">
-      <SideNavbar blogs={true} />
-
       <div className="adminBlogMain">
         <h1 className="adminBlog">Admin Blog</h1>
 
@@ -279,7 +276,7 @@ const AdminBlogs = () => {
           {blogs.map((Blog) => (
             <div className="Blog" key={Blog._id}>
               <img
-                src={`https://techspot-v0iy.onrender.com/${Blog.image}`}
+                src={`https://localhost:8000/${Blog.image}`}
                 alt={Blog.title}
               />
               <div className="Blog-info">

@@ -23,7 +23,7 @@ const AdminLogin = () => {
 
     try {
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/admin",
+        "https://localhost:8000/api/admin",
         {
           method: "POST",
           crossDomain: true,

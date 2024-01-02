@@ -1,0 +1,24 @@
+.admindashboard {
+  display: flex;
+  flex-direction: row;
+}
+.adminWelcome {
+  display: flex;
+  justify-content: center;
+  background-color: #b4c5e469;
+  color: #105ab2;
+  padding: 16px;
+  font-size: xxx-large;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 4%;
+  width: 1300px;
+  margin: 0 auto;
+}
+.welcome {
+  text-align: center;
+  color: #105ab2;
+  width: 100%; 
+}

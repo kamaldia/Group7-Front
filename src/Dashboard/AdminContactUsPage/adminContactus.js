@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./adminContactus.css";
-import SideNavbar from "../../components/SideNavbar/sideNavbar";
-
 const AdminContactUs = () => {
   const [messages, setMessages] = useState([]);
 
@@ -9,7 +7,7 @@ const AdminContactUs = () => {
     const fetchContactUs = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/contacts"
+          "https://localhost:8000/api/contacts"
         );
         if (response.ok) {
           const jsonData = await response.json();
@@ -37,7 +35,7 @@ const AdminContactUs = () => {
   const handleDeleteMessage = async (messageId) => {
     try {
       const response = await fetch(
-        `https://techspot-v0iy.onrender.com/api/contacts/${messageId}`,
+        `https://localhost:8000/api/contacts/${messageId}`,
         {
           method: "DELETE",
         }
@@ -55,7 +53,6 @@ const AdminContactUs = () => {
 
   return (
     <div className="adminContactUsView">
-      <SideNavbar contactus={true} />
       <div className="adminContactUsMain">
         <h1 className="adminContactUsMainHeader">Contact Us Messages</h1>
 

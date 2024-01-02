@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./adminProducts.css";
-import SideNavbar from "../../components/SideNavbar/sideNavbar";
-
 const AdminProducts = () => {
   const [productCategory, setProductCategory] = useState([]);
   const [images, setImages] = useState([]);
@@ -19,7 +17,7 @@ const AdminProducts = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/products"
+          "https://localhost:8000/api/products"
         );
         if (response.ok) {
           const json = await response.json();
@@ -140,13 +138,6 @@ const AdminProducts = () => {
 
   return (
     <div className="adminProductsView">
-      <SideNavbar
-        categories={false}
-        products={true}
-        blogs={false}
-        contactus={false}
-        admins={false}
-      />
       <div className="adminProductsMain">
         <h1 className="adminProductsMainHeader">Admin Products Page</h1>
 

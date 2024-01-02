@@ -1,15 +1,12 @@
 .adminAdminsView {
   display: flex;
   height: 100vh;
-  width: 100%;
 }
-
 .mainAdminAdmins {
   width: 80%;
   display: flex;
   flex-direction: column;
 }
-
 .mainAdminAdmins .adminAdd {
   background-color: #b4c5e4;
   color: #105ab2;
@@ -24,7 +21,6 @@
   justify-content: center;
   padding-left: 4%;
 }
-
 /* Admin List Styles */
 .mainAdminAdmins .admin-list {
   width: 60%;
@@ -37,7 +33,6 @@
 
   border-radius: 5px;
 }
-
 .mainAdminAdmins .admin-list th,
 .mainAdminAdmins .admin-list td {
   font-size: x-large;

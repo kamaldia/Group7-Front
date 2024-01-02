@@ -13,7 +13,7 @@ const AllProducts = () => {
     const fetchProductsByCategory = async () => {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/products/`
+          `https://localhost:8000/api/products/`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -39,7 +39,7 @@ const AllProducts = () => {
             products.map((product) => (
               <Card
                 key={product._id}
-                image={`https://techspot-v0iy.onrender.com/${product.imagePath[0]}`}
+                image={`https://localhost:8000/${product.imagePath[0]}`}
                 name={product.name}
                 price={product.price}
                 description={product.description}

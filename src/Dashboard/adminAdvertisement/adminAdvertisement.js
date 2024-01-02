@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./adminAdvertisement.css";
-import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
 const AdminAdvertisement = () => {
   const [refreshAdvertisements, setRefreshAdvertisements] = useState("");
@@ -21,7 +20,7 @@ const AdminAdvertisement = () => {
     const fetchAdvertisements = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/advertisements"
+          "https://localhost:8000/api/advertisements"
         );
         if (response.ok) {
           const json = await response.json();
@@ -44,7 +43,7 @@ const AdminAdvertisement = () => {
       formData.append("image", newAdvertisement.image);
 
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/advertisements",
+        "https://localhost:8000/api/advertisements",
         {
           method: "POST",
           body: formData,
@@ -87,7 +86,7 @@ const AdminAdvertisement = () => {
         }
 
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/advertisements/${editedAdvertisement._id}`,
+          `https://localhost:8000/api/advertisements/${editedAdvertisement._id}`,
           {
             method: "PUT",
             body: formData,
@@ -123,7 +122,7 @@ const AdminAdvertisement = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/advertisements/${AdvertisementId}`,
+          `https://localhost:8000/api/advertisements/${AdvertisementId}`,
           {
             method: "DELETE",
           }
@@ -161,7 +160,6 @@ const AdminAdvertisement = () => {
 
   return (
     <div className="adminAdvertisementView">
-      <SideNavbar advertisements={true} />
 
       <div className="adminAdvertisementMain">
         <h1 className="adminAdvertisement">Admin Advertisement</h1>

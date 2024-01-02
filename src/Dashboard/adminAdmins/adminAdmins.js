@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./adminAdmins.css";
-import SideNavbar from "../../components/SideNavbar/sideNavbar";
 import deleteIcon from "../../assets/icons/delete.svg";
 import updateIcon from "../../assets/icons/update.svg";
 
@@ -23,7 +22,7 @@ const AdminAdmins = () => {
     const fetchAdmins = async () => {
       try {
         const response = await fetch(
-          "https://techspot-v0iy.onrender.com/api/admins"
+          "https://localhost:8000/api/admins"
         );
         if (response.ok) {
           const data = await response.json();
@@ -46,7 +45,7 @@ const AdminAdmins = () => {
     }
     try {
       const response = await fetch(
-        "https://techspot-v0iy.onrender.com/api/admins",
+        "https://localhost:8000/api/admins",
         {
           method: "POST",
           headers: {
@@ -77,7 +76,7 @@ const AdminAdmins = () => {
     if (confirmDelete) {
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/admins/${adminId}`,
+          `https://localhost:8000/api/admins/${adminId}`,
           {
             method: "DELETE",
             headers: {
@@ -111,7 +110,7 @@ const AdminAdmins = () => {
       }
       try {
         const response = await fetch(
-          `https://techspot-v0iy.onrender.com/api/admins/${editedAdmin._id}`,
+          `https://localhost:8000/api/admins/${editedAdmin._id}`,
           {
             method: "PUT",
             headers: {
@@ -151,14 +150,6 @@ const AdminAdmins = () => {
 
   return (
     <div className="adminAdminsView">
-      <SideNavbar
-        categories={false}
-        products={false}
-        blogs={false}
-        contactus={false}
-        admins={true}
-      />
-
       <div className="mainAdminAdmins">
         <h1 className="adminAdd">Admins Page</h1>
         <div className="adminCRUDS">
@@ -202,7 +193,6 @@ const AdminAdmins = () => {
               )}
               <br />
               <br />
-
               <button type="submit">Add Admin</button>
             </form>
           </div>
