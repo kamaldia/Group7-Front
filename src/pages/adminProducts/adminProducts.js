@@ -23,7 +23,8 @@ const AdminProducts = () => {
           "http://localhost:8000/api/product/"
         );
         if (response.status == 200) {
-          const json = await response.json();
+          console.log("this is response in adminProducts: ", response)
+          const json = response.data;
           setProducts(json);
         }
       } catch (error) {
@@ -37,7 +38,7 @@ const AdminProducts = () => {
           "http://localhost:8000/api/product/"
         );
         if (response.status == 200) {
-          const json = await response.json();
+          const json = response.data;
           setProductCategory(json);
         }
       } catch (error) {
@@ -89,7 +90,7 @@ const AdminProducts = () => {
         );
 
         if (response.status == 200) {
-          const updatedProduct = await response.json();
+          const updatedProduct = response.data;
           setProducts((prevProducts) =>
             prevProducts.map((Product) =>
               Product._id === updatedProduct._id ? updatedProduct : Product

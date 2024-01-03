@@ -10,13 +10,15 @@ const Products = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch(
-        "produhttps://localhost:8000ct/api/products"
-      );
-      const json = await response.json();
-      console.log(json);
-      if (response.ok) {
-        setProducts(json);
+      try {
+        const response = await axios.get("http://localhost:8000/api/product");
+        const json = response.data;
+        console.log(response);
+        if (response.status === 200) {
+          setProducts(json);
+        }
+      } catch (error) {
+        console.error(error);
       }
     };
     fetchProducts();
@@ -62,7 +64,7 @@ const Products = () => {
                 product.featured && (
                   <Card
                     key={product._id}
-                    image={`produhttps://localhost:8000ct/${product.imagePath[0]}`}
+                    image={`http://localhost:8000/${product.imagePath[0]}`}
                     name={product.name}
                     price={product.price}
                     description={product.description}

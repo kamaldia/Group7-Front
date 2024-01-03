@@ -24,7 +24,7 @@ const AdminCategoryView = () => {
           "http://localhost:8000/api/category"
         );
         if (response.status == 200) {
-          const json = await response.json();
+          const json = response.data;
           setCategories(json);
         }
       } catch (error) {
@@ -49,7 +49,7 @@ const AdminCategoryView = () => {
       );
 
       if (response.status == 200) {
-        const newCategoryData = await response.json();
+        const newCategoryData = response.data;
         setCategories((prevCategories) => [...prevCategories, newCategoryData]);
         setNewCategory({
           categoryName: "",
@@ -86,7 +86,7 @@ const AdminCategoryView = () => {
         );
 
         if (response.status == 200) {
-          const updatedCategory = await response.json();
+          const updatedCategory = response.data;
           setCategories((prevCategories) =>
             prevCategories.map((category) =>
               category._id === updatedCategory._id ? updatedCategory : category
@@ -198,7 +198,7 @@ const AdminCategoryView = () => {
           {categories.map((category) => (
             <div className="category" key={category._id}>
               <img
-                src={`https://localhost:8000/${category.categoryImage}`}
+                src={`http://localhost:8000/${category.categoryImage}`}
                 alt={category.categoryName}
               />
               <div className="category-info">

@@ -30,7 +30,7 @@ const Contacttuss = () => {
       e.target.reset();
 
       if (response.status == 200) {
-        const data = await response.json();
+        const data = response.data;
         sendEmail();
         console.log(data);
       } else {

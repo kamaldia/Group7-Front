@@ -27,13 +27,17 @@ const CarouselComponent = () => {
 
   useEffect(() => {
     const fetchBlogs = async () => {
-      const response = await fetch(
-        "produhttps://localhost:8000ct/api/blogs"
-      );
-      const json = await response.json();
-      console.log(json);
-      if (response.ok) {
-        setBlogs(json);
+      try {
+        const response = await axios.get(
+          "http://localhost:8000/api/blog"
+        );
+        const json = response.data;
+        console.log(json);
+        if (response.status === 200) {
+          setBlogs(json);
+        }
+      } catch (error) {
+        console.error(error)
       }
     };
     fetchBlogs();
@@ -65,7 +69,7 @@ const CarouselComponent = () => {
             <div className="blogs-container">
               <img
                 height="500"
-                src={`produhttps://localhost:8000ct/${blog.image}`}
+                src={`http://localhost:8000/${blog.image}`}
                 alt={blog.alt}
                 className="w-100"
               />

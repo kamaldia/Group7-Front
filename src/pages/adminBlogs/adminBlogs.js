@@ -30,7 +30,7 @@ const AdminBlogs = () => {
           "http://localhost:8000/api/blog"
         );
         if (response.status == 200) {
-          const json = await response.json();
+          const json = response.data;
           setBlogs(json);
         }
       } catch (error) {
@@ -58,7 +58,7 @@ const AdminBlogs = () => {
       );
 
       if (response.status == 200) {
-        const newBlogData = await response.json();
+        const newBlogData = response.data;
         setBlogs((prevBlogs) => [...prevBlogs, newBlogData]);
         setNewBlog({
           title: "",
@@ -107,7 +107,7 @@ const AdminBlogs = () => {
         );
 
         if (response.status == 200) {
-          const updatedBlog = await response.json();
+          const updatedBlog = response.data;
           setBlogs((prevBlogs) =>
             prevBlogs.map((Blog) =>
               Blog._id === updatedBlog._id ? updatedBlog : Blog

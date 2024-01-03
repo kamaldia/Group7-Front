@@ -24,7 +24,7 @@ const AdminCarousels = () => {
           "http://localhost:8000/api/carousel"
         );
         if (response.status == 200) {
-          const json = await response.json();
+          const json = response.data;
           setCarousels(json);
         }
       } catch (error) {
@@ -49,7 +49,7 @@ const AdminCarousels = () => {
       );
 
       if (response.status == 200) {
-        const newCarouselData = await response.json();
+        const newCarouselData = response.data;
         setCarousels((prevCarousels) => [...prevCarousels, newCarouselData]);
         setNewCarousel({
           title: "",
@@ -86,7 +86,7 @@ const AdminCarousels = () => {
         );
 
         if (response.status == 200) {
-          const updatedCarousel = await response.json();
+          const updatedCarousel = response.data;
           setCarousels((prevCarousels) =>
             prevCarousels.map((Carousel) =>
               Carousel._id === updatedCarousel._id ? updatedCarousel : Carousel
@@ -192,7 +192,7 @@ const AdminCarousels = () => {
           {carousels.map((Carousel) => (
             <div className="Carousel" key={Carousel._id}>
               <img
-                src={`https://localhost:8000/${Carousel.image}`}
+                src={`http://localhost:8000/${Carousel.image}`}
                 alt={Carousel.title}
               />
               <div className="Carousel-info">

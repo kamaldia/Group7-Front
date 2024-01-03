@@ -25,7 +25,7 @@ const AdminAdvertisement = () => {
           "http://localhost:8000/api/advertisement"
         );
         if (response.status == 200) {
-          const json = await response.json();
+          const json = response.data;
           setAdvertisements(json);
         }
       } catch (error) {
@@ -50,7 +50,7 @@ const AdminAdvertisement = () => {
       );
 
       if (response.status == 200) {
-        const newAdvertisementData = await response.json();
+        const newAdvertisementData = response.data;
         setAdvertisements((prevAdvertisements) => [
           ...prevAdvertisements,
           newAdvertisementData,
@@ -90,7 +90,7 @@ const AdminAdvertisement = () => {
         );
 
         if (response.status == 200) {
-          const updatedAdvertisement = await response.json();
+          const updatedAdvertisement = response.data;
           setAdvertisements((prevAdvertisements) =>
             prevAdvertisements.map((Advertisement) =>
               Advertisement._id === updatedAdvertisement._id

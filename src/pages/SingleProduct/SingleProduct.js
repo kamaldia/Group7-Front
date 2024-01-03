@@ -27,7 +27,7 @@ export default function SingleProduct() {
         if (response.status != 200) {
           throw new Error("Network response was not ok");
         }
-        const data = await response.json();
+        const data = response.data;
         setProduct(data);
         setLoading(false);
         console.log(data);

@@ -1,6 +1,6 @@
 import "./App.css";
+import axios from "axios";
 import { useEffect, useState, useContext } from "react";
-import { jwtDecode } from "jwt-decode";
 import { AuthContext } from "./Context/AuthContext.js";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 //Pages & Components
@@ -22,26 +22,31 @@ import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import AllProducts from "./pages/allProducts/AllProducts";
 import ProductsByCategory from "./pages/ProductsByCategory/ProductsByCategory";
 function App() {
-  const { token, SetToken, setUser, user } = useContext(AuthContext);
-
+  const { SetToken, setUser, user } = useContext(AuthContext);
+  console.log("this is user in appjs: ", user);
+  const [local_token, setLocalToken] = useState(localStorage.getItem('token'));
   const [render, setRender] = useState(0);
 
-  const google = window.google;
+  const google = window.google; 
   const client_id =
     "644557351884-pd9bsn8mejbca84pmu140sn1alprglpn.apps.googleusercontent.com";
 
   const handleCallbackResponse = (response) => {
     try {
-      console.log("Encoded JWT ID token: " + response.credential);
-      var user_object = jwtDecode(response.credential);
-      console.log("this is user object: ", user_object);
-      setUser(user_object);
-      SetToken("true"); // not a real token, we can add a real token later to control admin and user posting permissions
-      localStorage.setItem('token', token);
+      // console.log("Encoded JWT ID token: " + response.credential);
+      SetToken(response.credential);
     } catch (error) {
       console.error("error decoding jwt: ", error);
     }
   };
+
+   useEffect(() => {
+    if (!local_token) {
+      console.error("no token available")
+     } else {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${local_token}`;
+     }
+  }, [local_token]);
 
   useEffect(() => {
     google.accounts.id.initialize({
@@ -56,16 +61,17 @@ function App() {
   }, [render]);
 
   function ProtectedRoute({ children }) {
-    const isAuthenticated = localStorage.getItem("Token") !== false;
+    const isAuthenticated = localStorage.getItem("token");
     if (isAuthenticated) {
       return children;
     } else {
       setUser(null);
-      setRender((old) => {
+      setRender((old) => { //to rerender the button if no token or null
         old++;
       });
     }
   }
+
 
   return (
     <div className="App">

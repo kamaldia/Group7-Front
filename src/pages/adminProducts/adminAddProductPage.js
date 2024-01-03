@@ -29,7 +29,7 @@ const AdminAddProductPage = () => {
           "http://localhost:8000/api/category"
         );
         if (response.status == 200) {
-          const json = await response.json();
+          const json = response.data;
           setProductCategory(json);
         }
       } catch (error) {
@@ -89,7 +89,7 @@ const AdminAddProductPage = () => {
       );
 
       if (response.status == 200) {
-        const data = await response.json();
+        const data = response.data;
         if (data) {
           alert("Product saved successfully");
         }

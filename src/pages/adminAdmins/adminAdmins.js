@@ -23,9 +23,9 @@ const AdminAdmins = () => {
     // Fetch admins on component mount
     const fetchAdmins = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/admins");
+        const response = await axios.get("http://localhost:8000/api/admin");
         if (response.ok) {
-          const data = await response.json();
+          const data = response.data;
           setAdmins(data);
           console.log(data);
         } else {
@@ -45,7 +45,7 @@ const AdminAdmins = () => {
     }
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/admins",
+        "http://localhost:8000/api/admin",
         JSON.stringify(newAdmin),
         {
           headers: {
@@ -75,7 +75,7 @@ const AdminAdmins = () => {
     if (confirmDelete) {
       try {
         const response = await axios.delete(
-          `http://localhost:8000/api/admins/${adminId}`
+          `http://localhost:8000/api/admin/${adminId}`
         );
 
         if (response.status == 200) {
@@ -103,7 +103,7 @@ const AdminAdmins = () => {
       }
       try {
         const response = await axios.put(
-          `http://localhost:8000/api/admins/${editedAdmin._id}`,
+          `http://localhost:8000/api/admin/${editedAdmin._id}`,
           JSON.stringify(editedAdmin),
           {
             headers: {

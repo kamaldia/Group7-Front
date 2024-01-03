@@ -8,15 +8,20 @@ const Featured = () => {
   useEffect(() => {
     setIsLoading(true);
     const fetchAds = async () => {
-      const response = await fetch(
-        "produhttps://localhost:8000ct/api/advertisements"
-      );
-      const json = await response.json();
-      console.log(json);
-      if (response.ok) {
-        setAds(json);
+      try{
+        const response = await axios.get(
+          "http://localhost:8000/api/advertisement"
+        );
+        const json = response.data;
+        console.log(json);
+        if (response.status === 200) {
+          setAds(json);
+        }
+      } catch(error){
+        console.error(error)
+      } finally {
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
     fetchAds();
   }, []);
@@ -56,7 +61,7 @@ const Featured = () => {
                   }`}
                 >
                   <img
-                    src={`produhttps://localhost:8000ct/${ad.image}`}
+                    src={`http://localhost:8000/${ad.image}`}
                     alt={`Image ${index + 1}`}
                     className="carousel-image-1"
                   />
@@ -74,7 +79,7 @@ const Featured = () => {
                   }`}
                 >
                   <img
-                    src={`produhttps://localhost:8000ct/${ad.image}`}
+                    src={`http://localhost:8000/${ad.image}`}
                     alt={`Image ${index + 1}`}
                     className="carousel-image-1"
                   />

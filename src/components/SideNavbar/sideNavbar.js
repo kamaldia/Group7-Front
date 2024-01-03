@@ -26,8 +26,8 @@ const SideNavbar = (props) => {
   const navigate = useNavigate();
 
   const logoutfunc = () => {
-    localStorage.setItem("authToken", "");
-    navigate("/home");
+    localStorage.setItem("token", null);
+    navigate("/");
   };
 
   return (

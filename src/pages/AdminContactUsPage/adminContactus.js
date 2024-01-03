@@ -13,7 +13,7 @@ const AdminContactUs = () => {
           "http://localhost:8000/api/contactus"
         );
         if (response.status == 200) {
-          const jsonData = await response.json();
+          const jsonData = response.data;
           setMessages(jsonData);
         }
       } catch (error) {

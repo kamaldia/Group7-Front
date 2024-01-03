@@ -10,15 +10,20 @@ const Carousel = () => {
   useEffect(() => {
     const fetchCarousels = async () => {
       setIsLoading(true);
-      const response = await fetch(
-        "produhttps://localhost:8000ct/api/carousels"
-      );
-      const json = await response.json();
-      console.log(json);
-      if (response.ok) {
-        setCarousels(json);
+      try {
+        const response = await axios.get(
+          "http://localhost:8000/api/carousel"
+        );
+        const json = response.data;
+        console.log(json);
+        if (response.status === 200) {
+          setCarousels(json);
+        }
+      } catch(error) {
+        console.error(error);
+      } finally{
+        setIsLoading(false);
       }
-      setIsLoading(false);
     };
     fetchCarousels();
   }, []);
@@ -64,7 +69,7 @@ const Carousel = () => {
               }`}
             >
               <img
-                src={`produhttps://localhost:8000ct/${carousel.image}`}
+                src={`http://localhost:8000/${carousel.image}`}
                 alt={`Image ${index + 1}`}
                 className="carousel-image"
               />
