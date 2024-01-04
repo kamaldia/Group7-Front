@@ -29,14 +29,15 @@ import AllProducts from "./pages/allProducts/AllProducts";
 import ProductsByCategory from "./pages/ProductsByCategory/ProductsByCategory";
 import SideNavbar from "./components/SideNavbar/sideNavbar";
 
+const [render, setRender] = useState(0);
+
 function ProtectedRoute({ children }) {
   const isAuthenticated = localStorage.getItem("token");
   if (isAuthenticated) {
     return children;
   } else {
     setUser(null);
-    setRender((old) => {
-      //to rerender the button if no token or null
+    setRender((old) => { //to rerender the button if no token or null
       old++;
     });
   }
@@ -57,7 +58,6 @@ function App() {
   const { SetToken, setUser, user } = useContext(AuthContext);
   console.log("this is user in appjs: ", user);
   const [local_token, setLocalToken] = useState(localStorage.getItem("token"));
-  const [render, setRender] = useState(0);
 
   const google = window.google;
   const client_id =
