@@ -2,7 +2,13 @@ import "./App.css";
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "./Context/AuthContext.js";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  Outlet,
+} from "react-router-dom";
 //Pages & Components
 import Home from "./pages/Home/Home";
 import AdminDashboard from "./pages/adminDashboard/adminDashboard";
@@ -21,13 +27,39 @@ import AboutUs from "./pages/aboutUs/aboutUs";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
 import AllProducts from "./pages/allProducts/AllProducts";
 import ProductsByCategory from "./pages/ProductsByCategory/ProductsByCategory";
+import SideNavbar from "./components/SideNavbar/sideNavbar";
+
+function ProtectedRoute({ children }) {
+  const isAuthenticated = localStorage.getItem("token");
+  if (isAuthenticated) {
+    return children;
+  } else {
+    setUser(null);
+    setRender((old) => {
+      //to rerender the button if no token or null
+      old++;
+    });
+  }
+}
+
+const Layout = ({ children }) => {
+  return (
+    <>
+      <div style={{ display: "flex", gap: "50px" }}>
+        <SideNavbar />
+        <Outlet />
+      </div>
+    </>
+  );
+};
+
 function App() {
   const { SetToken, setUser, user } = useContext(AuthContext);
   console.log("this is user in appjs: ", user);
-  const [local_token, setLocalToken] = useState(localStorage.getItem('token'));
+  const [local_token, setLocalToken] = useState(localStorage.getItem("token"));
   const [render, setRender] = useState(0);
 
-  const google = window.google; 
+  const google = window.google;
   const client_id =
     "644557351884-pd9bsn8mejbca84pmu140sn1alprglpn.apps.googleusercontent.com";
 
@@ -40,12 +72,12 @@ function App() {
     }
   };
 
-   useEffect(() => {
+  useEffect(() => {
     if (!local_token) {
-      console.error("no token available")
-     } else {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${local_token}`;
-     }
+      console.error("no token available");
+    } else {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${local_token}`;
+    }
   }, [local_token]);
 
   useEffect(() => {
@@ -60,59 +92,59 @@ function App() {
     });
   }, [render]);
 
-  function ProtectedRoute({ children }) {
-    const isAuthenticated = localStorage.getItem("token");
-    if (isAuthenticated) {
-      return children;
-    } else {
-      setUser(null);
-      setRender((old) => { //to rerender the button if no token or null
-        old++;
-      });
-    }
-  }
-
-
   return (
     <div className="App">
       {user ? (
         <BrowserRouter>
           <div className="pages">
             <Routes>
-              <Route path="/" element={<Home />} />
-
-              <Route
-                path="/admin"
-                element={<ProtectedRoute>{<AdminDashboard />}</ProtectedRoute>}
-              />
-              <Route path="/login" element={<AdminLogin />} />
-              <Route path="/admin/categories" element={<AdminCategory />} />
-              <Route path="/admin/admins" element={<AdminAdmins />} />
-              <Route path="/admin/products" element={<AdminProducts />} />
-              <Route
-                path="/admin/products/add"
-                element={<AdminAddProductPage />}
-              />
-              <Route
-                path="/admin/advertisements"
-                element={<AdminAdvertisement />}
-              />
-              <Route path="/admin/blogs" element={<AdminBlogs />} />
-              <Route path="admin/contactus" element={<AdminContactUs />} />
-              <Route path="/admin/carousels" element={<AdminCarousels />} />
-
               <Route path="/home" element={<Home />} />
-              <Route path="/product/:productId" element={<SingleProduct />} />
-              <Route path="/products" element={<AllProducts />} />
+              <Route path="/login" element={<AdminLogin />} />
               <Route
-                path="/products/:categoryName"
+                path="/"
+                element={
+                  <ProtectedRoute>
+                    <Layout>
+                      <Route path="admin" element={<AdminDashboard />} />
+                      <Route
+                        path="admin/categories"
+                        element={<AdminCategory />}
+                      />
+                      <Route path="admin/admins" element={<AdminAdmins />} />
+                      <Route
+                        path="admin/products"
+                        element={<AdminProducts />}
+                      />
+                      <Route
+                        path="admin/products/add"
+                        element={<AdminAddProductPage />}
+                      />
+                      <Route
+                        path="admin/advertisements"
+                        element={<AdminAdvertisement />}
+                      />
+                      <Route path="admin/blogs" element={<AdminBlogs />} />
+                      <Route
+                        path="admin/contactus"
+                        element={<AdminContactUs />}
+                      />
+                      <Route
+                        path="admin/carousels"
+                        element={<AdminCarousels />}
+                      />
+                    </Layout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="product/:productId" element={<SingleProduct />} />
+              <Route path="products" element={<AllProducts />} />
+              <Route
+                path="products/:categoryName"
                 element={<ProductsByCategory />}
               />
-              <Route path="/aboutus" element={<AboutUs />} />
-
+              <Route path="aboutus" element={<AboutUs />} />
+              <Route path="contacttuss" element={<Contacttuss />} />
               <Route path="/*" element={<Notfound />} />
-
-              <Route path="/contacttuss" element={<Contacttuss />} />
             </Routes>
           </div>
         </BrowserRouter>
