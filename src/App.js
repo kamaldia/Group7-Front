@@ -22,6 +22,7 @@ import AdminAdvertisement from "./pages/adminAdvertisement/adminAdvertisement";
 import AdminBlogs from "./pages/adminBlogs/adminBlogs";
 import AdminCarousels from "./pages/adminCarousels/adminCarousels";
 import AdminContactUs from "./pages/AdminContactUsPage/adminContactus";
+import Blogs from "./pages/blogs/blogs.js";
 import Contacttuss from "./pages/contacttuss/contacttuss";
 import AboutUs from "./pages/aboutUs/aboutUs";
 import SingleProduct from "./pages/SingleProduct/SingleProduct";
@@ -131,6 +132,7 @@ function App() {
                 path="products/:categoryName"
                 element={<ProductsByCategory />}
               />
+              <Route path="blog" element={<Blogs />} />
               <Route path="aboutus" element={<AboutUs />} />
               <Route path="contacttuss" element={<Contacttuss />} />
               <Route path="/*" element={<Notfound />} />

@@ -17,14 +17,14 @@ const Navbar = () => {
 
   return (
     <nav className="App-navbar-abc">
-      <Link to="/home">
+      <Link to="/">
         {" "}
         <img className="techspot-logo-abc" src={TechSpot} alt="website-logo" />
       </Link>
 
       <ul className="nav-list-abc">
         <li className="nav-item-abc">
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li className="nav-item-abc">
           <div className="shop-link-abc" onMouseEnter={toggleDropdown}>
@@ -54,7 +54,7 @@ const Navbar = () => {
           )}
         </li>
         <li className="nav-item-abc">
-          <Link to="/admin/blogs">Blog</Link>
+          <Link to="/blog">Blog</Link>
         </li>
         <li className="nav-item-abc">
           <Link to="/contacttuss">Contact Us</Link>

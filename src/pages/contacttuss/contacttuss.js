@@ -63,7 +63,7 @@ const Contacttuss = () => {
     <div className="ContactUs1">
       <div className="LeftSide">
         <h1>For more Details Contact Us</h1>
-        <Link to="/home">
+        <Link to="/">
           {" "}
           <button className="homebtn">
             <FontAwesomeIcon icon={faHome} />
