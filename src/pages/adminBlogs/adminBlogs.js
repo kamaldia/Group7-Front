@@ -102,7 +102,7 @@ const AdminBlogs = () => {
         }
 
         const response = await axios.patch(
-          `http://localhost:8000/api/blog/${editedBlog._id}`,
+          `http://localhost:8000/api/blog/${editedBlog.id}`,
           formData
         );
 
@@ -110,7 +110,7 @@ const AdminBlogs = () => {
           const updatedBlog = response.data;
           setBlogs((prevBlogs) =>
             prevBlogs.map((Blog) =>
-              Blog._id === updatedBlog._id ? updatedBlog : Blog
+              Blog.id === updatedBlog.id ? updatedBlog : Blog
             )
           );
 
@@ -138,7 +138,7 @@ const AdminBlogs = () => {
 
         if (response.status == 200) {
           setBlogs((prevBlogs) =>
-            prevBlogs.filter((Blog) => Blog._id !== BlogId)
+            prevBlogs.filter((Blog) => Blog.id !== BlogId)
           );
           console.log("Blog deleted successfully");
         } else {
@@ -269,7 +269,7 @@ const AdminBlogs = () => {
 
         <div className="Blog-list">
           {blogs.map((Blog) => (
-            <div className="Blog" key={Blog._id}>
+            <div className="Blog" key={Blog.id}>
               <img
                 src={`http://localhost:8000/${Blog.image}`}
                 alt={Blog.title}
@@ -286,7 +286,7 @@ const AdminBlogs = () => {
                   >
                     Edit
                   </button>
-                  <button onClick={() => handleDeleteBlog(Blog._id)}>
+                  <button onClick={() => handleDeleteBlog(Blog.id)}>
                     Delete
                   </button>
                 </div>
