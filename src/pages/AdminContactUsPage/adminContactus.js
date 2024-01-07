@@ -43,7 +43,7 @@ const AdminContactUs = () => {
       if (response.status == 200) {
         // Remove the deleted message from the state
         setMessages((prevMessages) =>
-          prevMessages.filter((message) => message._id !== messageId)
+          prevMessages.filter((message) => message.id !== messageId)
         );
       }
     } catch (error) {
@@ -70,7 +70,7 @@ const AdminContactUs = () => {
             </thead>
             <tbody>
               {messages.map((message) => (
-                <tr className="admin-ContactusRows" key={message._id}>
+                <tr className="admin-ContactusRows" key={message.id}>
                   <td>{message.contactName}</td>
                   <td>{message.contactEmail}</td>
                   <td>{message.contactMessage}</td>
@@ -78,7 +78,7 @@ const AdminContactUs = () => {
                   <td>
                     <button
                       className="admin-ContactusDeleteButton"
-                      onClick={() => handleDeleteMessage(message._id)}
+                      onClick={() => handleDeleteMessage(message.id)}
                     >
                       Delete
                     </button>

@@ -85,7 +85,7 @@ const AdminAdvertisement = () => {
         }
 
         const response = await axios.put(
-          `http://localhost:8000/api/advertisement/${editedAdvertisement._id}`,
+          `http://localhost:8000/api/advertisement/${editedAdvertisement.id}`,
           formData,
         );
 
@@ -93,7 +93,7 @@ const AdminAdvertisement = () => {
           const updatedAdvertisement = response.data;
           setAdvertisements((prevAdvertisements) =>
             prevAdvertisements.map((Advertisement) =>
-              Advertisement._id === updatedAdvertisement._id
+              Advertisement.id === updatedAdvertisement.id
                 ? updatedAdvertisement
                 : Advertisement
             )
@@ -124,7 +124,7 @@ const AdminAdvertisement = () => {
         if (response.status == 200) {
           setAdvertisements((prevAdvertisements) =>
             prevAdvertisements.filter(
-              (Advertisement) => Advertisement._id !== AdvertisementId
+              (Advertisement) => Advertisement.id !== AdvertisementId
             )
           );
           console.log("Advertisement deleted successfully");
@@ -201,7 +201,7 @@ const AdminAdvertisement = () => {
 
         <div className="Advertisement-list">
           {advertisements.map((Advertisement) => (
-            <div className="Advertisement" key={Advertisement._id}>
+            <div className="Advertisement" key={Advertisement.id}>
               <img
                 src={`http://localhost:8000/${Advertisement.image}`}
                 alt={Advertisement.title}
@@ -219,7 +219,7 @@ const AdminAdvertisement = () => {
                     Edit
                   </button>
                   <button
-                    onClick={() => handleDeleteAdvertisement(Advertisement._id)}
+                    onClick={() => handleDeleteAdvertisement(Advertisement.id)}
                   >
                     Delete
                   </button>

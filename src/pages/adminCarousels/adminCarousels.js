@@ -81,7 +81,7 @@ const AdminCarousels = () => {
         }
 
         const response = await axios.put(
-          `http://localhost:8000/api/carousel/${editedCarousel._id}`,
+          `http://localhost:8000/api/carousel/${editedCarousel.id}`,
           formData
         );
 
@@ -89,7 +89,7 @@ const AdminCarousels = () => {
           const updatedCarousel = response.data;
           setCarousels((prevCarousels) =>
             prevCarousels.map((Carousel) =>
-              Carousel._id === updatedCarousel._id ? updatedCarousel : Carousel
+              Carousel.id === updatedCarousel.id ? updatedCarousel : Carousel
             )
           );
 
@@ -117,7 +117,7 @@ const AdminCarousels = () => {
 
         if (response.status == 200) {
           setCarousels((prevCarousels) =>
-            prevCarousels.filter((Carousel) => Carousel._id !== CarouselId)
+            prevCarousels.filter((Carousel) => Carousel.id !== CarouselId)
           );
           console.log("Carousel deleted successfully");
         } else {
@@ -190,7 +190,7 @@ const AdminCarousels = () => {
 
         <div className="Carousel-list">
           {carousels.map((Carousel) => (
-            <div className="Carousel" key={Carousel._id}>
+            <div className="Carousel" key={Carousel.id}>
               <img
                 src={`http://localhost:8000/${Carousel.image}`}
                 alt={Carousel.title}
@@ -207,7 +207,7 @@ const AdminCarousels = () => {
                   >
                     Edit
                   </button>
-                  <button onClick={() => handleDeleteCarousel(Carousel._id)}>
+                  <button onClick={() => handleDeleteCarousel(Carousel.id)}>
                     Delete
                   </button>
                 </div>
