@@ -12,9 +12,7 @@ const AdminAdmins = () => {
   // Admin state
   const [admins, setAdmins] = useState([]);
   const [users, setUsers] = useState([]);
-  const [newAdmin, setNewAdmin] = useState({ username: "", role: "" });
   const [editedAdmin, setEditedAdmin] = useState({
-    username: "",
     role: "",
   });
 
@@ -38,7 +36,7 @@ const AdminAdmins = () => {
 
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/admin");
+        const response = await axios.get("http://localhost:8000/api/user");
         if (response.status === 200) {
           const data = response.data;
           setUsers(data);
@@ -53,31 +51,6 @@ const AdminAdmins = () => {
     fetchUsers();
   }, []);
 
-  const handleAddAdmin = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:8000/api/user",
-        JSON.stringify(newAdmin),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      e.target.reset();
-
-      if (response.status == 200) {
-        const data = await response.data;
-        setAdmins([...admins, data]);
-        setNewAdmin({ username: "", role: "" });
-      } else {
-        alert("Error, Admin already exists");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-    }
-  };
   const handleDeleteAdmin = async (adminId) => {
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this admin?"
@@ -101,13 +74,11 @@ const AdminAdmins = () => {
     );
 
     if (confirmUpdate) {
-      if (!editedAdmin.role || editedAdmin.role.toString().length < 4) {
-        return alert("Please enter a role with at least 4 characters");
+      console.log("this is edited admin:", editedAdmin)
+      if (!editedAdmin.role || (editedAdmin.role.toString() !== "user" && editedAdmin.role.toString() !== "admin")) {
+        return alert("Please enter a valid role admin or user");
       }
-      if (!editedAdmin.username) {
-        alert("Please fill in all fields before updating.");
-        return;
-      }
+
       try {
         const response = await axios.put(
           `http://localhost:8000/api/user/${editedAdmin.id}`,
@@ -155,44 +126,49 @@ const AdminAdmins = () => {
           <div className="add-admin">
             <div>
               {" "}
-              <h2>Add New Admin</h2>
+              <h2>To Add New Admin, Change the user role to admin</h2>
             </div>
-            <hr />
-            <form className="addadminform" onSubmit={handleAddAdmin}>
-              <div className="forminputs">
-                <label htmlFor="username">Username:</label>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  onChange={(e) =>
-                    setNewAdmin({ ...newAdmin, username: e.target.value })
-                  }
-                  required
-                />
-              </div>
-              <br />
-              <br />
-
-              <div className="forminputs">
-                <label htmlFor="role">Role:</label>
-                <input
-                  type="role"
-                  id="role"
-                  name="role"
-                  onChange={(e) => {
-                    setNewAdmin({ ...newAdmin, role: e.target.value });
-                  }}
-                  required
-                />
-              </div>
-              <br />
-              <br />
-
-              <button type="submit">Add Admin</button>
-            </form>
           </div>
 
+          <div className="admin-list">
+            <table>
+              <thead>
+                <tr>
+                  <th>User Name</th>
+                  <th className=".AdminAdminsActionTable" colSpan="2">
+                    User Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {users.map((user) => (user.role === "user" &&
+                  <tr key={user.id}>
+                    <td>{user.username}</td>
+                    <td>
+                      <img
+                        onClick={() => {
+                          setEditedAdmin(user);
+                          setIsModalOpen(true);
+                        }}
+                        className="trycatch"
+                        src={updateIcon}
+                        alt="edit icon"
+                        width={40}
+                      />
+
+                      <img
+                        onClick={() => handleDeleteAdmin(user.id)}
+                        className="trycatch"
+                        src={deleteIcon}
+                        alt="delete icon"
+                        width={40}
+                      />
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
           <div className="admin-list">
             <table>
               <thead>
@@ -241,21 +217,6 @@ const AdminAdmins = () => {
               </span>
               <h2>Edit</h2>
               <form>
-                <div className="form-group">
-                  <label htmlFor="username">Username:</label>
-                  <input
-                    type="text"
-                    id="edited-username"
-                    value={editedAdmin.username}
-                    onChange={(e) =>
-                      setEditedAdmin({
-                        ...editedAdmin,
-                        username: e.target.value,
-                      })
-                    }
-                    required
-                  />
-                </div>
                 <div className="form-group">
                   <label htmlFor="role">Role:</label>
                   <input
