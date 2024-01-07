@@ -35,7 +35,7 @@ const AdminProducts = () => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/api/product/"
+          "http://localhost:8000/api/category/"
         );
         if (response.status == 200) {
           const json = response.data;
@@ -85,7 +85,7 @@ const AdminProducts = () => {
         }
 
         const response = await axios.put(
-          `http://localhost:8000/api/product/${editedProduct._id}`,
+          `http://localhost:8000/api/product/${editedProduct.id}`,
           formData
         );
 
@@ -93,7 +93,7 @@ const AdminProducts = () => {
           const updatedProduct = response.data;
           setProducts((prevProducts) =>
             prevProducts.map((Product) =>
-              Product._id === updatedProduct._id ? updatedProduct : Product
+              Product.id === updatedProduct.id ? updatedProduct : Product
             )
           );
 
@@ -122,7 +122,7 @@ const AdminProducts = () => {
 
         if (response.status == 200) {
           setProducts((prevProducts) =>
-            prevProducts.filter((Product) => Product._id !== ProductId)
+            prevProducts.filter((Product) => Product.id !== ProductId)
           );
           console.log("Product deleted successfully");
         } else {
@@ -148,7 +148,7 @@ const AdminProducts = () => {
 
         <div className="Product-list">
           {products.map((Product) => (
-            <div className="Product" key={Product._id}>
+            <div className="Product" key={Product.id}>
               <img
                 src={`http://localhost:8000/${Product.imagePath[0]}`}
                 alt={Product.name}
@@ -165,7 +165,7 @@ const AdminProducts = () => {
                   >
                     Edit
                   </button>
-                  <button onClick={() => handleDeleteProduct(Product._id)}>
+                  <button onClick={() => handleDeleteProduct(Product.id)}>
                     Delete
                   </button>
                 </div>

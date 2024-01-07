@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./adminAddProductPage.css";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
+import axios from "axios";
 
 const AdminAddProductPage = () => {
   const [name, setName] = useState("");
@@ -28,6 +29,7 @@ const AdminAddProductPage = () => {
         const response = await axios.get(
           "http://localhost:8000/api/category"
         );
+        // console.log("this is response of all categories in admin add product", response)
         if (response.status == 200) {
           const json = response.data;
           setProductCategory(json);
@@ -40,6 +42,7 @@ const AdminAddProductPage = () => {
     fetchCategories();
   }, []);
 
+  // console.log("this is product categories in admin add product", productCategory)
   const allcategories = productCategory.map(
     (category) => category.categoryName
   );
@@ -63,21 +66,21 @@ const AdminAddProductPage = () => {
       formData.append("imagePath", image);
     });
 
-    const attributes = {
-      storage: storage,
-      operatingSystem: operatingSystem,
-      camera: camera,
-      display: display,
-      battery: battery,
-      ram: ram,
-      cpu: cpu,
-    };
-    if (showExtraFields) {
-      attributes.accessoriesColor = accessoriesColor;
-      attributes.accessoriesBrand = accessoriesBrand;
-      attributes.accessoriesType = accessoriesType;
-    }
-    formData.append("attributes", JSON.stringify(attributes));
+    // const attributes = {
+    //   storage: storage,
+    //   operatingSystem: operatingSystem,
+    //   camera: camera,
+    //   display: display,
+    //   battery: battery,
+    //   ram: ram,
+    //   cpu: cpu,
+    // };
+    // if (showExtraFields) {
+    //   attributes.accessoriesColor = accessoriesColor;
+    //   attributes.accessoriesBrand = accessoriesBrand;
+    //   attributes.accessoriesType = accessoriesType;
+    // }
+    // formData.append("attributes", JSON.stringify(attributes));
 
     // for (const value of formData.values()) {
     //   console.log(value);
@@ -128,14 +131,14 @@ const AdminAddProductPage = () => {
         <h1 className="adminProductsAddMainHeader">Add Product</h1>
         <div className="add-Product">
           {/* added classname for buttons */}
-          <div className="buttons-container-a">
+          {/* <div className="buttons-container-a">
             <button onClick={() => setShowExtraFields(false)}>
               Add Products
             </button>
             <button onClick={() => setShowExtraFields(true)}>
               Add Accessories
             </button>
-          </div>
+          </div> */}
           <form className="addProductform" onSubmit={handleCreateProduct}>
             <div className="formUp">
               <div className="forminputs-add-Product">
@@ -191,7 +194,7 @@ const AdminAddProductPage = () => {
                 />
               </div>
 
-              {!showExtraFields && (
+              {/* {!showExtraFields && (
                 <>
                   <div className="forminputs-add-Product">
                     <label htmlFor="ProductName">Storage:</label>
@@ -256,11 +259,11 @@ const AdminAddProductPage = () => {
                       value={cpu}
                       onChange={(e) => setCpu(e.target.value)}
                     />
-                  </div>
-                </>
-              )}
+                  </div> */}
+                {/* </>
+              )} */}
 
-              {showExtraFields && (
+              {/* {showExtraFields && (
                 <>
                   <div className="forminputs-add-Product">
                     <label htmlFor="ProductName">Accessories Color:</label>
@@ -290,7 +293,7 @@ const AdminAddProductPage = () => {
                     />
                   </div>
                 </>
-              )}
+              )} */}
               <div className="forminputs-add-Product">
                 <div className="featured-class">
                   <label htmlFor="ProductName" class="cyberpunk-checkbox-label">
