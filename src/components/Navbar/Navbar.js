@@ -33,7 +33,7 @@ const Navbar = () => {
           </div>
           {isDropdownVisible && (
             <ul className="dropdown-menu-abc" onMouseLeave={closeDropdown}>
-              <li className="menu-item-abc">
+              {/* <li className="menu-item-abc">
                 <Link to="/products/phones">Phones</Link>
               </li>
               <li className="menu-item-abc">
@@ -46,7 +46,7 @@ const Navbar = () => {
                 <Link to="/products/laptop accessories">
                   Laptop Accessories
                 </Link>
-              </li>
+              </li> */}
               <li className="menu-item-abc">
                 <Link to="/products">View All Products</Link>
               </li>
@@ -54,7 +54,7 @@ const Navbar = () => {
           )}
         </li>
         <li className="nav-item-abc">
-          <Link to="/blogs">Blog</Link>
+          <Link to="/admin/blogs">Blog</Link>
         </li>
         <li className="nav-item-abc">
           <Link to="/contacttuss">Contact Us</Link>

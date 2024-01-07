@@ -1,6 +1,6 @@
 import "./App.css";
 import axios from "axios";
-import { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { AuthContext } from "./Context/AuthContext.js";
 import {
   BrowserRouter,
@@ -41,12 +41,13 @@ function App() {
       return children;
     } else {
       setUser(null);
-      setRender((old) => { //to rerender the button if no token or null
+      setRender((old) => {
+        //to rerender the button if no token or null
         old++;
       });
     }
   }
-  
+
   const Layout = ({ children }) => {
     return (
       <>
@@ -97,44 +98,33 @@ function App() {
         <BrowserRouter>
           <div className="pages">
             <Routes>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/login" element={<AdminLogin />} />
               <Route
-                path="/"
+                path="admin"
                 element={
                   <ProtectedRoute>
                     <Layout>
-                      <Route path="admin" element={<AdminDashboard />} />
-                      <Route
-                        path="admin/categories"
-                        element={<AdminCategory />}
-                      />
-                      <Route path="admin/admins" element={<AdminAdmins />} />
-                      <Route
-                        path="admin/products"
-                        element={<AdminProducts />}
-                      />
-                      <Route
-                        path="admin/products/add"
-                        element={<AdminAddProductPage />}
-                      />
-                      <Route
-                        path="admin/advertisements"
-                        element={<AdminAdvertisement />}
-                      />
-                      <Route path="admin/blogs" element={<AdminBlogs />} />
-                      <Route
-                        path="admin/contactus"
-                        element={<AdminContactUs />}
-                      />
-                      <Route
-                        path="admin/carousels"
-                        element={<AdminCarousels />}
-                      />
+                      <AdminDashboard />
                     </Layout>
                   </ProtectedRoute>
                 }
               />
+              <Route path="admin/categories" element={<AdminCategory />} />
+              <Route path="admin/admins" element={<AdminAdmins />} />
+              <Route path="admin/products" element={<AdminProducts />} />
+              <Route
+                path="admin/products/add"
+                element={<AdminAddProductPage />}
+              />
+              <Route
+                path="admin/advertisements"
+                element={<AdminAdvertisement />}
+              />
+              <Route path="admin/blogs" element={<AdminBlogs />} />
+              <Route path="admin/contactus" element={<AdminContactUs />} />
+              <Route path="admin/carousels" element={<AdminCarousels />} />
+
               <Route path="product/:productId" element={<SingleProduct />} />
               <Route path="products" element={<AllProducts />} />
               <Route

@@ -19,11 +19,11 @@ const Card = ({ image, name, price, description, productId, cardsPerRow }) => {
         </div>
       </div>
 
-      <div className="button-container-abc">
+      {/* <div className="button-container-abc">
         <Link to={`/product/${productId}`}>
           <button className="button2-abc">View More</button>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
