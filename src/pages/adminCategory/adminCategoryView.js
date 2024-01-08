@@ -81,7 +81,7 @@ const AdminCategoryView = () => {
         }
 
         const response = await axios.put(
-          `http://localhost:8000/api/category/${editedCategory._id}`,
+          `http://localhost:8000/api/category/${editedCategory.id}`,
           formData
         );
 
@@ -89,7 +89,7 @@ const AdminCategoryView = () => {
           const updatedCategory = response.data;
           setCategories((prevCategories) =>
             prevCategories.map((category) =>
-              category._id === updatedCategory._id ? updatedCategory : category
+              category.id === updatedCategory.id ? updatedCategory : category
             )
           );
 
@@ -117,7 +117,7 @@ const AdminCategoryView = () => {
 
         if (response.status == 200) {
           setCategories((prevCategories) =>
-            prevCategories.filter((category) => category._id !== categoryId)
+            prevCategories.filter((category) => category.id !== categoryId)
           );
           console.log("Category deleted successfully");
         } else {
@@ -196,7 +196,7 @@ const AdminCategoryView = () => {
 
         <div className="category-list">
           {categories.map((category) => (
-            <div className="category" key={category._id}>
+            <div className="category" key={category.id}>
               <img
                 src={`http://localhost:8000/${category.categoryImage}`}
                 alt={category.categoryName}
@@ -213,7 +213,7 @@ const AdminCategoryView = () => {
                   >
                     Edit
                   </button>
-                  <button onClick={() => handleDeleteCategory(category._id)}>
+                  <button onClick={() => handleDeleteCategory(category.id)}>
                     Delete
                   </button>
                 </div>

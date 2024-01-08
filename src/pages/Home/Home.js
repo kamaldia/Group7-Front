@@ -18,7 +18,6 @@ const Home = () => {
       <Carousel />
       <CarouselBottom />
       <Products />
-      <Featured />
       <Blogs />
       <Bottom />
     </div>

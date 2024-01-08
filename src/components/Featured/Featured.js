@@ -1,5 +1,6 @@
 import "./Featured.css";
 import React, { useState, useEffect } from "react";
+import axios from 'axios';
 
 const Featured = () => {
   const [ads, setAds] = useState([]);

@@ -249,18 +249,6 @@ const AdminBlogs = () => {
               />
             </div>
             <br />
-            <div className="forminputs-add-Blog">
-              <label htmlFor="date">Blog Date:</label>
-              <input
-                className="blogdateadmin"
-                type="date"
-                id="date"
-                name="date"
-                value={newBlog.date}
-                onChange={handleDateChange}
-                required
-              />
-            </div>
             <br />
 
             <button type="submit">Add Blog</button>

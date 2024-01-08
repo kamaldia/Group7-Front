@@ -2,6 +2,7 @@ import "./Carousel.css";
 import React, { useState, useEffect } from "react";
 import left from "../../assets/images/left-arrow.svg";
 import right from "../../assets/images/right-arrow.svg";
+import axios from 'axios';
 
 const Carousel = () => {
   const [carousels, setCarousels] = useState([]);
@@ -15,7 +16,7 @@ const Carousel = () => {
           "http://localhost:8000/api/carousel"
         );
         const json = response.data;
-        console.log(json);
+        // console.log("this is response in carousel",json);
         if (response.status === 200) {
           setCarousels(json);
         }
@@ -49,7 +50,7 @@ const Carousel = () => {
   const goToNextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % carousels.length);
   };
-
+console.log("this is carousel in carousel:", carousels)
   return (
     <div className="carousel">
       {isLoading ? (

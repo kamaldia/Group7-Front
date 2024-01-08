@@ -3,6 +3,7 @@ import "./CarouselComponent.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useState, useEffect } from "react";
+import axios from 'axios';
 
 const responsive = {
   desktop: {

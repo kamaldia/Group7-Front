@@ -357,54 +357,6 @@ const AdminProducts = () => {
                     </div>
                   </>
                 )}
-
-                {editedProduct.categoryId?.categoryName !== "laptops" &&
-                  editedProduct.categoryId?.categoryName !== "phones" && (
-                    <>
-                      <div className="form-group">
-                        <label htmlFor="ProductName">Accessories Color:</label>
-                        <input
-                          type="text"
-                          placeholder="Accessories Color"
-                          value={editedProduct.attributes?.accessoriesColor}
-                          onChange={(e) =>
-                            setEditedProduct({
-                              ...editedProduct,
-                              attributes: { accessoriesColor: e.target.value },
-                            })
-                          }
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="ProductName">Accessories Type:</label>
-                        <input
-                          type="text"
-                          placeholder="Accessories Type"
-                          value={editedProduct.attributes?.accessoriesType}
-                          onChange={(e) =>
-                            setEditedProduct({
-                              ...editedProduct,
-                              attributes: { accessoriesType: e.target.value },
-                            })
-                          }
-                        />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="ProductName">Accessories Brand:</label>
-                        <input
-                          type="text"
-                          placeholder="Accessories Brand"
-                          value={editedProduct.attributes?.accessoriesBrand}
-                          onChange={(e) =>
-                            setEditedProduct({
-                              ...editedProduct,
-                              attributes: { accessoriesBrand: e.target.value },
-                            })
-                          }
-                        />
-                      </div>
-                    </>
-                  )}
                 <div className="form-group">
                   <div className="featured-class">
                     <label

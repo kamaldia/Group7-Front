@@ -3,6 +3,7 @@ import "./Products.css";
 import { useState, useEffect } from "react";
 import Card from "../../components/card/card";
 // import { faE } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -26,41 +27,11 @@ const Products = () => {
 
   return (
     <div className="site-wrapper1">
-      <div className="header-titles">
-        <p
-          onClick={() => {
-            setFeatured("phones");
-          }}
-        >
-          <p>SMARTPHONES</p>
-        </p>
-        <p
-          onClick={() => {
-            setFeatured("phone accessories");
-          }}
-        >
-          <p> SMARTPHONE ACCESSORIES</p>
-        </p>
-        <p
-          onClick={() => {
-            setFeatured("laptops");
-          }}
-        >
-          <p>LAPTOPS</p>
-        </p>
-        <p
-          onClick={() => {
-            setFeatured("laptop accessories");
-          }}
-        >
-          <p> LAPTOP ACCESSORIES</p>
-        </p>
-      </div>
       <div className="site-wrap">
         <div className="pro-header1">
           {products.map((product, index) => (
             <div>
-              {product.categoryId.categoryName === featured &&
+              {product.categoryName === featured &&
                 product.featured && (
                   <Card
                     key={product._id}
